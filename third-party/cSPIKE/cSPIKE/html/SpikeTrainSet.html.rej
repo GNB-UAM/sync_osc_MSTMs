@@ -1,0 +1,61 @@
+diff a/html/SpikeTrainSet.html b/html/SpikeTrainSet.html	(rejected hunks)
+@@ -349,49 +349,34 @@
+              Pooled = unique(Pooled);
+  
+          <span class="keyword">end</span>
+- </pre><h2>Time shift functions.<a name="13"></a></h2><p>These functions take care of the difference between "real" times and internal times. The object computes using positive spiketimes and in case the recording begins at negative times, all data is shifted so that the recording begins from 0 internally. For output the times are again shifted back to original.</p><pre class="codeinput">        <span class="keyword">function</span>  [time1,time2,Data] = CreateTimeShift(obj,time1,time2,Data)
+- 
+-             obj.timeShift = time1;
+-             time1 = time1-obj.timeShift;
+-             time2 = time2-obj.timeShift;
+-             <span class="keyword">for</span> i = 1:length(Data)
+-                 Data{i}=Data{i}-obj.timeShift;
+-             <span class="keyword">end</span>
+- 
+-         <span class="keyword">end</span>
+- 
+-         <span class="keyword">function</span>  [time] = InputTimeShift(obj,time)
+- 
+-             time = time-obj.timeShift;
+- 
+-         <span class="keyword">end</span>
+- 
+- 
+-         <span class="keyword">function</span>  [time] = outputTimeShift(obj,time)
+- 
+-             time = time+obj.timeShift;
+- 
+-         <span class="keyword">end</span>
+  </pre><pre class="codeinput">    <span class="keyword">end</span>
+ +<<<<<<< HEAD
+++<<<<<<< HEAD
+ +</pre><h2>PUBLIC METHODS *********************************************************<a name="15"></a></h2><pre class="codeinput">    methods (Access = public)
+ +=======
+ +</pre><h2>PUBLIC METHODS ***************************************************<a name="15"></a></h2><pre class="codeinput">    methods (Access = public)
+ +>>>>>>> e4fc2a8b2da1b16aedbeae26cb806e3192a0994d
+ +</pre><h2>Constructor<a name="16"></a></h2><p>Builds a spiketrain set with the spiketrains given and beginning and end times.</p><pre class="codeinput">        <span class="keyword">function</span> obj = SpikeTrainSet(spiketrains, beginning, ending )
+ +            obj.timeShift = 0;
+++=======
++ </pre><h2>PUBLIC METHODS *********************************************************<a name="12"></a></h2><pre class="codeinput">    methods (Access = public)
++ </pre><h2>Constructor<a name="13"></a></h2><p>Builds a spiketrain set with the spiketrains given and beginning and end times.</p><pre class="codeinput">        <span class="keyword">function</span> obj = SpikeTrainSet(spiketrains, beginning, ending )
+++>>>>>>> parent of 97a619f... made nice comments
+              obj.SetData(spiketrains, beginning, ending );
+- 
+          <span class="keyword">end</span>
+  </pre><pre class="codeoutput error">Not enough input arguments.
+  
+ +<<<<<<< HEAD
+++<<<<<<< HEAD
+ +Error in SpikeTrainSet (line 331)
+ +=======
+ +Error in SpikeTrainSet (line 327)
+ +>>>>>>> e4fc2a8b2da1b16aedbeae26cb806e3192a0994d
+++=======
++ Error in SpikeTrainSet (line 259)
+++>>>>>>> parent of 97a619f... made nice comments
+              obj.SetData(spiketrains, beginning, ending );
+- </pre><h2>Setting data<a name="17"></a></h2><p>Function sets data to the classes own variables. Calls appropriate checking functions to input. Data is only accepted in a single cell array containing spiketrains. If called to a spiketrain set that has already been set, the user is asked for input if it is to be replaced.</p><pre class="codeinput">        <span class="keyword">function</span> SetData(obj, Data, time1, time2)
++ </pre><h2>Setting data<a name="14"></a></h2><p>Function sets data to the classes own variables. Calls appropriate checking functions to input. Data is only accepted in a single cell array containing spiketrains.</p><pre class="codeinput">        <span class="keyword">function</span> SetData(obj, Data, time1, time2)
+              Data = Data';
+              <span class="comment">% checking that the data is in correct form.</span>
+              obj.CheckData(Data);
