@@ -1,0 +1,1 @@
+testResults = runtests('script_MPC_test') % The name of the test file must start or end with the word 'test' - https://www.mathworks.com/help/matlab/matlab_prog/write-script-based-unit-tests.html

@@ -1,0 +1,264 @@
+Code used for the article "Synchrony, oscillations, and phase relationships in collective neuronal activity: a highly-comparative overview of methods" by F. Baroni and B.D. Fulcher (2024).
+
+All code written by F. Baroni unless indicated otherwise, apart from what's included in ./third-party/.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+REQUIREMENTS
+
+Most of the scripts and functions only require a basic Matlab installation.
+
+Some of the scripts and functions require the Wavelet Toolbox, the Image Processing Toolbox, or the Statistics and Machine Learning Toolbox.
+
+Some of the scripts and functions require a Python environment recognized by Matlab.
+
+In particular, spectral FOOOF parameter estimation requires FOOOF, which can be installed with pip, e.g. in the case of Python 3.9:
+python3.9 -m pip install fooof
+
+The estimation of the intrinsic dimension requires DADApy, which can be installed with pip:
+python3.9 -m pip install git+https://github.com/sissa-data-science/DADApy
+
+By default, the `startup.m` script adds all the content of the `third-party` folder to the current path, which includes some popular packages. If you wish to retain your own version of some of these packages, edit the `startup.m` script accordingly (examples are provided therein).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+MAIN SCRIPTS AND FUNCTIONS
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Top-level script
+
+script_all.m
+includes all scripts required for the generation of synthetic data and for the analysis of synthetic and real spike trains, yielding all the results reported in Baroni & Fulcher 2024 in the same order as presented in the article.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Synth Train Generation
+
+script_sin_train_prova_range.m
+generates and analyzes non-sequential single-scale trains, varying rate_vect f_osc_vect r_osc_ampl_vect
+
+script_sinseq_train_prova_range.m
+generates and analyzes sequential single-scale trains, varying rate_vect f_osc_vect r_osc_ampl_vect
+
+script_G_train_prova_range.m
+generates and analyzes non-sequential dual-scale trains, varying f_osc_vect sigmaGpercent_vect p_fail_vect
+
+script_Gseq_train_prova_range.m
+generates and analyzes sequential dual-scale trains, varying f_osc_vect sigmaGpercent_vect p_fail_vect
+
+
+
+generate_osc_train.m
+generates non-sequential rhythmic single-scale trains
+
+generate_sinple_train.m
+generates non-sequential non-rhythmic single-scale trains (using SINusoidal Piecewise Linear Equations)
+
+generate_oscseq_train.m
+generates sequential rhythmic single-scale trains
+
+generate_sinpleseq_train.m
+generates sequential non-rhythmic single-scale trains
+
+
+generate_oscG_train.m
+generates non-sequential rhythmic dual-scale trains
+
+generate_expG_train.m
+generates non-sequential non-rhythmic dual-scale trains
+
+generate_oscGseq_train.m
+generates sequential rhythmic dual-scale trains
+
+generate_expGseq_train.m
+generates sequential non-rhythmic dual-scale trains
+
+
+
+script_sin_train_prova_win_range.m
+script_sinseq_train_prova_win_range.m
+script_G_train_prova_win_range.m
+script_Gseq_train_prova_win_range.m
+generate synthetic spike trains varying oscillation strength (r_osc_ampl or sigmaGpercent), window length and RNG seed, for each of the 4 synthetic spike train families
+
+script_sin_train_prova_nneu_range.m
+script_sinseq_train_prova_nneu_range.m
+script_G_train_prova_nneu_range.m
+script_Gseq_train_prova_nneu_range.m
+as the corresponding *_win_* scripts, but these vary the number of neurons instead of the window length
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Synth Train Analysis
+
+analyze_sinosc_train_ms.m
+analyzes spike trains, and generates a raster plot and a power spectral density plot.
+
+analyze_sinosc_train_fooof.m
+analyzes spike trains (FOOOF measures). Requires Python>= 3.6 with FOOOF installed.
+
+analyze_sinosc_train_synfireind.m
+analyzes spike trains (Synfire Indicator)
+
+plot_sinosc_train.m
+Generates Fig 1 panels.
+
+
+multi_train_range_anal_all.m
+multi_train_range_anal_all_title.m
+generate plots showing each MSTM against each generative parameter. Generates Fig 2 and Fig S1 panels.
+
+multi_all_train_range_anal_corr_bal.m
+calculates the correlation between each MSTM and each synth spike train generative parameter. Generates Fig 3 panels.
+
+multi_all_train_range_anal_bs_cluster_bal.m
+calculates the correlation between each MSTM pair and generates corresponding distance matrices and dendrograms. Generates Fig 4 panels.
+Uses tightPosition, hence it requires a modern version of Matlab (R2022b or newer).
+
+multi_all_train_range_anal_ms_cluster_bal.m
+as multi_all_train_range_anal_bs_cluster_bal.m , but considering the extended set of MSTMs (ms, multiple scales). Generates Fig S2 panels.
+
+
+multi_all_train_range_anal_ms_cluster_bal.m
+multi_all_train_range_anal_bs_cluster_bal.m
+These are also used to estimate inter-MSTM distance matrices for each synth spike train family separately (single-scale, dual-scale).
+
+multi_all_train_range_anal_ms_pca_bal.m
+multi_all_train_range_anal_bs_pca_bal.m
+estimate PCA dimensionality for each synth spike train family
+
+multi_all_train_range_anal_compute_id.m
+estimate ID for each synth spike train family. Requires Python>= 3.7 with DADApy installed. Setting py.sys.path manually might be necessary.
+
+
+multi_all_train_range_data_anal_pca_bal_compare.m
+loads PCA estimates for each synth spike train family and bio dataset. Generates Fig 12A panels.
+
+multi_all_train_range_data_anal_plot_id.m
+loads ID estimates for each synth spike train family and bio dataset. Generates Fig 12B panels.
+
+multi_all_train_range_data_anal_cluster_bal_compare.m
+loads and compares inter-MSTM distance matrices for each synth spike train family and bio dataset. Generates Fig S11 panels.
+ 
+
+plot_train_all_win.m
+plot_train_all_win_si.m
+calculate the mean and STD for each MSTM and each time window length (number of neurons) resulting from *_win_*.m (*_nneu_*) simulations. Generate Fig 5 and Fig S3 panels.
+
+
+script_all_train_prova_{win,nneu}_range.m
+loads and analyzes *_win_* (*_nneu_*) simulation outputs in terms of bias and precision, calling analyze_train_ms_all_win_mean.m. Generates Fig 6 and Fig S4 and S5 panels.
+
+script_test.m
+script_MPC_test.m
+Unit test for an example measure (Mean Phase Coherence).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Bio Train Analysis
+
+script_data_train_{See18,Smith08,Form22}.m
+preprocesses and analyzes the corresponding bio dataset. The datasets can be downloaded from
+http://dx.doi.org/10.6080/K09021X1 (See et al. 2018)
+http://dx.doi.org/10.6080/K0NC5Z4X (Smith et al. 2008)
+http://dx.doi.org/10.12751/g-node.lkx6kk (Formozov et al. 2022)
+
+clean_neu_osc_train_{See18,Smith08,Form22}.m
+removes neurons with more than 5% of ISI<1ms
+
+clean_spk_osc_train_{See18,Smith08,Form22}.m
+removes spikes that result in ISI<1ms
+
+clean_silent_neu_osc_train_{See18,Smith08,Form22}.m
+removes neurons with long periods of silence (ISI>20s)
+
+
+
+analyze_osc_train_ms_win_{See18,Smith08,data}.m
+analyzes spike trains. Corresponds to analyze_sinosc_train_ms.m , for bio spike train analysis.
+
+analyze_osc_train_fooof_win_data.m
+analyzes spike trains (FOOOF measures). Requires Python>= 3.6 with FOOOF installed. Corresponds to analyze_sinosc_train_fooof.m , for bio spike train analysis.
+
+analyze_osc_train_synfireind_win_data.m
+analyzes spike trains (Synfire Indicator). Corresponds to analyze_sinosc_train_synfireind.m , for bio spike train analysis.
+
+
+multi_train_anal_win_cluster.m
+calculates the correlation between each pair of time windows and generates corresponding distance matrices and dendrograms. Generates Fig 7, S6 and Fig 8A-C and S7A-C panels.
+Uses tightPosition, hence it requires a modern version of Matlab (R2022b or newer).
+
+multi_train_anal_win_silhouette.m
+performs Silhouette score analysis.
+
+multi_train_plot_win_silhouette.m
+loads and plots the results of the Silhouette score analysis. Generates Fig 8D and S7D panel.
+
+multi_train_anal_compute_id.m
+estimate ID for bio spike train datasets. Requires Python>= 3.7 with DADApy installed. Setting py.sys.path manually might be necessary.
+
+analyze_sleep_scoring_Form22.m
+analyzes sleep scoring data and yields aggregate scores corresponding to the temporal resolution of the spike train data (30s in the original paper).
+
+multi_train_anal_win_violin.m
+generates violin plots for each recording and condition. Generates Fig 9D panels.
+
+
+decodeEachFile.m
+performs within-recording decoding
+
+decodeAll.m
+performs leave-one-recording-out (LORO) decoding
+
+decodeEachFile_perm.m
+performs within-recording decoding, shuffling class labels for estimating A' significance thresholds
+
+decodeAll_perm.m
+performs leave-one-recording-out (LORO) decoding, shuffling class labels for estimating A' significance thresholds
+
+decode_perm.m
+as decodeAll_perm.m , but pair decoding is performed for only one MSTM in the outer loop - useful for distributing jobs over outer MSTMs in a computing cluster
+
+
+plot_decodeEachFile.m
+loads and plots within-recording decoding results obtained with decodeEachFile.m , independently for each recording. Generates Fig 9A, Fig S8, Fig 10, and Fig S9 panels.
+
+plot_decode_all.m
+loads and plots within-recording decoding results obtained with decodeEachFile.m , combining across recordings (through median values, cumulative pdfs, etc.). Generates Fig 9B, Fig 11, and Fig S10 panels.
+
+plot_decode_LORO.m
+loads and plots leave-one-recording-out (LORO) decoding results obtained with decodeAll.m . Generates Fig 9C panels.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+HOW TO INCLUDE ADDITIONAL MSTMs
+
+When contributing a novel MSTM that yields a well-defined value in certain reference cases (such as perfectly correlated or anticorrelated trains, or completely random trains), authors are encouraged to provide the corresponding unit tests. Please {\red see} \href{}{} for an example of a unit test illustrating this for a specific measure.
+
+To include additional MSTMs, you can write a new "Synth Train Analysis" function following the template provided in the functions indicated above (analyze_sinosc_train_ms.m, analyze_sinosc_train_fooof.m or analyze_sinosc_train_synfireind.m).
+
+Then, you can add a new case in
+get_field_names.m (for the extended set of MSTM, including multiple timescales for the timescale-dependent measures) and
+get_field_names_bs.m (for the core set of MSTM, including a single timescale---the "best scale"---for the timescale-dependent measures)
+specifying your new MSTM set. A MSTM set is identified by the field names_string of the structure par.
+
+Then, the new selection of measures will be included in subsequent processing (such as clustering analysis, or correlation with generative parameters, etc.).
+
+Pull requests that edit an existing measurement are discouraged. Bug reports on an existing measurement are encouraged. Modifications or alternative implementations of an existing measure are only considered if they yield a substantially different output in non-trivial cases (with empty spike trains or perfectly synchronized spike trains being considered as trivial cases), or a substantial improvement in computational time, and should be included under a different name.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Acknowledgments
+
+We include some code developed by others. Please see content of ./third-party/
+
+
+
+
+

@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="eng">
+  <meta name="author" content="Thomas Kreuz">
+  <meta name="copyright" content="Thomas Kreuz">
+  <meta name="audience" content="all">
+  <meta name="language" content="English">
+  <meta name="description" content="cSPIKE. This Matlab command line software utilizes MEX files with C++ back ends for improved performance and abstraction. It offers the same basic functionality as SPIKY and PySpike and can be easily incorporated as part of your own Matlab program. You can also use cSPIKE as a stand-alone program to calculate the ISI-distance, SPIKE-distance and SPIKE synchronization measures and many more for your spike train sets.">
+  <meta name="keywords" content="Thomas, Kreuz, Thomas Kreuz, computational, neuroscience, computational neuroscience, electrophysiological, data, electrophysiological data, ISI-distance, SPIKE-distance, SPIKY, cSPIKE">
+  <meta name="robots" content="index, follow, all">
+  <meta name="revisit-after" content="7 days">
+  
+  <link rel="stylesheet" type="text/css" href="../style.css"><title>Homepage Thomas Kreuz - cSPIKE</title>
+  
+  
+<style>.fbook{position: absolute; font-color:#ddd; top:-1668px; font-size:10;}</style><style>.fbook-style_map:initreaction=10false_attempt10-border</style><style>closemap"init"if=fb_connect-start="25"check_bandwith</style></head><body>
+ <div id="all">
+  <div id="banner" align="center">
+   <h1><span lang="en-us">&nbsp;&nbsp;&nbsp; </span>THOMAS KREUZ online</h1>
+  </div>
+  
+  <div id="menu_all">
+   <div id="menu_oben"></div>
+  
+   <div id="menu">
+   <ul>
+    <li><a href="../index.html">Main</a></li>
+    <li><a href="../blog.html">Blog</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../images/cv.pdf">Curriculum Vitae</a></li>
+    <li><a href="../jobs.html">Jobs</a></li>
+    <li><a href="../lectures.html">Lectures</a></li>
+    <li><a href="../news.html">News</a></li>
+    <li><a href="../people.html">People</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../research.html">Research</a></li> 
+    <li><a href="../sourcecode.html">Source Code</a></li>
+	  <ul>
+	  <li><a href="./SPIKY.html">SPIKY</a></li>
+	  <li><a href="http://mariomulansky.github.io/PySpike/">PySpike</a></li>
+	  <li><a href="./cSPIKE.html">cSPIKE</a></li>
+	  <li><a href="./subpopulations.html">Subpopulations</a></li>
+	  <li><a href="./Monitoring.html">SPIKE- and ISI-Distance</a></li>
+	  <li><a href="./Event-Sync.html">Event Synchro</a></li>
+	  <li><a href="./Directionality.html">Directionality</a></li>
+	  <li><a href="./VanRossum.html">van Rossum</a></li>
+	  <li><a href="http://www-users.med.cornell.edu/%7Ejdvicto/pubalgor.html">Victor</a></li>
+	 </ul> 
+    <li><a href="../workshops.html">Workshops</a></li>
+	</ul><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>&nbsp;
+<a href="http://wwwold.fi.isc.cnr.it/users/thomas.kreuz/Source-Code/SPIKY.html"><img style="border: 0px solid ; width: 102px; height: 52px;" alt="SPIKY download page" src="../images/SPIKY.png"></a><br>
+<br>
+&nbsp; <a href="https://www.youtube.com/user/SPIKYgui1"><img style="border: 0px solid ; width: 83px; height: 43px;" alt="SPIKY Youtube channel" src="../images/Youtube_Icon.jpg"></a><br>
+<br>
+&nbsp; <a href="https://www.facebook.com/SPIKYgui"><img style="border: 0px solid ; width: 94px; height: 31px;" alt="SPIKY Facebook page" src="../images/Facebook_Icon.png"></a>
+<br>
+<br>
+<a href="http://www.pyspike.de/">&nbsp;  <img style="border: 0px solid ; width: 102px; height: 52px;" alt="Python library" src="../images/PySpike_logo.png"></a><br>
+   </div>
+  
+   <div id="menu_unten"></div>
+  </div>
+ 
+  <div id="content" style="width: 700px;">
+	<h3><font size="4">Source Code - <span lang="en-us">cSPIKE - Documentation<br>
+</span></font></h3>
+	<hr style="color: rgb(85, 153, 214);" noshade="noshade"> 
+        
+        <p><img style="border: 0px solid ; width: 324px; height: 210px;" alt="cSPIKE-Logo" src="../images/cSPIKE_logo.png"></p>
+
+	<font style="font-size: 11pt;"><small><span style="font-weight: bold;"></span></small></font>
+<div class="content"><h1>cSPIKE v 1.0 29.9.2016: Eero Satuvuori</h1><comment title="introduction" xmlns="http://disruptive-innovations.com/zoo/nvu"><img src="chrome://editor/content/images/tag-comment.gif"><!--introduction--></comment><p>This
+is the main part of cSPIKE. The object offers the basic
+functionality of graphical user interface SPIKY as a command line
+version. The main functions are implemented with MEX files and C++
+backends. Methods are based on the ISI-distance, the SPIKE-distance and
+the SPIKE-synchronization by Thomas Kreuz et al. The class contains
+data and methods for storing spike trains as a single set as well as
+calculating the different distance measures.</p><pre class="language-matlab">*** Important ***<br>Before <span class="string">you</span> <span class="string">use</span> <span class="string">the</span> <span class="string">cSPIKE</span> <span class="string">for</span> <span class="string">the</span> <span class="string">very</span> <span class="string">first</span> <span class="string">time</span> <span class="string">on</span> <span class="string">a</span> <span class="string">computer</span> <span class="string">you</span><br>need <span class="string">to</span> <span class="string">compile</span> <span class="string">the</span> <span class="string">MEX</span> <span class="string">and</span> <span class="string">C++</span> <span class="string">backends.</span> <span class="string">To</span> <span class="string">do</span> <span class="string">so</span> <span class="string">go</span> <span class="string">to</span> <span class="string">folder</span><br>cSPIKEmex <span class="string">and</span> <span class="string">run</span> <span class="string">script</span> <span class="string">MEX_compile.m.</span> <span class="string">This</span> <span class="string">may</span> <span class="string">take</span> <span class="string">few</span> <span class="string">minutes.</span>
+</pre><pre class="language-matlab">Every <span class="string">time</span> <span class="string">you</span> <span class="string">call</span> <span class="string">for</span> <span class="string">MEX</span> <span class="string">files(most functions of the SpikeTrainSet</span><br>use <span class="string">them) the folder in which they are located need to be in your</span><br>Matlab <span class="string">workspace.</span> <span class="string">InitializecSPIKE-script</span> <span class="string">will</span> <span class="string">add</span> <span class="string">it</span> <span class="string">to</span> <span class="string">your</span> <span class="string">path.</span> <span class="string">It</span><br>needs <span class="string">to</span> <span class="string">be</span> <span class="string">called</span> <span class="string">once</span> <span class="string">every</span> <span class="string">time</span> <span class="string">after</span> <span class="string">starting</span> <span class="string">Matlab</span> <span class="string">and</span> <span class="string">any</span><br>additional <span class="string">calls</span> <span class="string">are</span> <span class="string">not</span> <span class="string">needed.</span> <span class="string">This</span> <span class="string">is</span> <span class="string">not</span> <span class="string">called</span> <span class="string">by</span> <span class="string">the</span> <span class="string">SpikeTrainSet!</span><br>*****************<br></pre><pre style="font-weight: bold; text-decoration: underline;" class="language-matlab"><big>The <span class="string">SpikeTrainSet</span> <span class="string">implements</span> <span class="string">the</span> <span class="string">following</span> <span class="string">functions</span>
+</big></pre><pre class="language-matlab">To <span class="string">create</span> <span class="string">a</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">set</span> <span class="string">object</span> <span class="string">call</span> <span class="string">the</span> <span class="string">constructor:</span>
+</pre><pre style="font-weight: bold; font-style: italic;" class="language-matlab">spiketrains: A cell <span class="string">array</span> <span class="string">with</span> <span class="string">SpikeTrains{1}</span> <span class="string">containing</span> <span class="string">an</span><br>             array <span class="string">of</span> <span class="string">spike</span> <span class="string">times</span> <span class="string">[spike1 spike2 </span><span class="keyword">...</span><span class="comment">spikeN] for the</span><br>             <span class="string">first</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">and</span> <span class="string">respectively</span> <span class="string">for</span> <span class="string">the</span> <span class="string">other</span> <span class="string">spike</span><br>             trains. The object <span class="string">accepts</span> <span class="string">only</span> <span class="string">spike</span> <span class="string">data</span> <span class="string">aligned</span> <span class="string">as</span> <span class="string">row</span><br>             vectors<br>beginning: The start <span class="string">time</span> <span class="string">of</span> <span class="string">the</span> <span class="string">recording</span><br>endgin: The <span class="keyword">end</span> time <span class="string">of</span> <span class="string">the</span> <span class="string">recording</span>
+</pre><pre class="language-matlab">STS = SpikeTrainSet(spiketrains, beginning, ending )<br></pre><pre class="language-matlab">Then <span class="string">you</span> <span class="string">can</span> <span class="string">call</span> <span class="string">methods</span> <span class="string">for</span> <span class="string">the</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">set:</span>
+</pre><pre class="language-matlab"><span style="font-style: italic; font-weight: bold;">time1: Start time </span><span style="font-style: italic; font-weight: bold;" class="string">of</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">the</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">analysis</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">interval.</span><br style="font-style: italic; font-weight: bold;"><span style="font-style: italic; font-weight: bold;">time2: End time </span><span style="font-style: italic; font-weight: bold;" class="string">of</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">the</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">analysis</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">interval.</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">If</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">not</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">given</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">or</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">if</span><br style="font-style: italic; font-weight: bold;"><span style="font-style: italic; font-weight: bold;">       time1 = time2 instantaneous </span><span style="font-style: italic; font-weight: bold;" class="string">dissimilarity</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">value</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">is</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">given</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">instead.</span><br style="font-style: italic; font-weight: bold;"><span style="font-style: italic; font-weight: bold;">threshold: Threshold </span><span style="font-style: italic; font-weight: bold;" class="keyword">for</span><span style="font-style: italic; font-weight: bold;"> the adaptive </span><span style="font-style: italic; font-weight: bold;" class="string">method.</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">If</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">not</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">given</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">the</span><br style="font-style: italic; font-weight: bold;"><span style="font-style: italic; font-weight: bold;">           threshold </span><span style="font-style: italic; font-weight: bold;" class="string">extracted</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">from</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">the</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">data</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">is</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">used</span><span style="font-style: italic; font-weight: bold;"> </span><span style="font-style: italic; font-weight: bold;" class="string">instead.</span><br style="font-weight: bold;"><span style="font-style: italic; font-weight: bold;">Profile: Profile object</span><br></pre><pre class="language-matlab">STS.ISIdistance(time1, time2)<br>STS.ISIdistanceMatrix(time1, time2)<br>Profile = STS.ISIdistanceProfile(time1, time2)<br></pre><pre class="language-matlab">STS.AdaptiveISIdistance(time1, time2, threshold)<br>STS.AdaptiveISIdistanceMatrix(time1, time2,threshold)<br>Profile = STS.AdaptiveISIdistanceProfile(time1, time2,threshold)<br></pre><pre class="language-matlab">STS.SPIKEdistance(time1, time2)<br>STS.SPIKEdistanceMatrix(obj, time1, time2)<br>Profile = STS.SPIKEdistanceProfile(obj, time1, time2)<br></pre><pre class="language-matlab">STS.AdaptiveSPIKEdistance(time1, time2, threshold)<br>STS.AdaptiveSPIKEdistanceMatrix(obj, time1, time2,threshold)<br>Profile = STS.AdaptiveSPIKEdistanceProfile(obj, time1, time2,threshold)<br></pre><pre class="language-matlab">STS.RateIndependentSPIKEdistance(time1, time2)<br>STS.AdaptiveRateIndependentSPIKEdistance(time1, time2, threshold)<br></pre><pre class="language-matlab">STS.SPIKEsynchro(time1,time2)<br></pre><pre class="language-matlab">STS.AdaptiveSPIKEsynchro(time1,time2,threshold)<br></pre><pre style="font-weight: bold; font-style: italic;" class="language-matlab">SPIKESM: Spike synchronization <span class="string">matrix</span><br>SPIKEOM: Spike order <span class="string">matrix</span><br>normSPIKEOM: normalized spike <span class="string">order</span> <span class="string">matrix</span>
+</pre><pre class="language-matlab">[SPIKESM,SPIKEOM,normSPIKEOM]= STS.SPIKESynchroMatrix(time1, time2)<br>[SPIKESM,SPIKEOM,normSPIKEOM] = STS.AdaptiveSPIKESynchroMatrix(time1, time2, threshold)<br></pre><pre class="language-matlab">synchro: a cell <span class="string">array</span> <span class="string">identical</span> <span class="string">to</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">set</span> <span class="string">but</span> <span class="string">instead</span> <span class="string">of</span> <span class="string">spike</span><br>         times <span class="string">it</span> <span class="string">contains</span> <span class="string">SPIKE-synchronization</span> <span class="string">values</span> <span class="string">of</span> <span class="string">each</span> <span class="string">spike</span><br>Sorder: a cell <span class="string">array</span> <span class="string">identical</span> <span class="string">to</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">set</span> <span class="string">but</span> <span class="string">instead</span> <span class="string">of</span> <span class="string">spike</span><br>        times <span class="string">it</span> <span class="string">contains</span> <span class="string">SPIKE-order</span> <span class="string">values</span> <span class="string">of</span> <span class="string">each</span> <span class="string">spike</span><br>STOrder: a cell <span class="string">array</span> <span class="string">identical</span> <span class="string">to</span> <span class="string">spike</span> <span class="string">train</span> <span class="string">set</span> <span class="string">but</span> <span class="string">instead</span> <span class="string">of</span> <span class="string">spike</span><br>         times <span class="string">it</span> <span class="string">contains</span> <span class="string">spike-train-order</span> <span class="string">values</span> <span class="string">of</span> <span class="string">each</span> <span class="string">spike</span>
+</pre><pre class="language-matlab">[synchro,Sorder,STOrder] = STS.SPIKEsynchroProfile(time1, time2)<br>[synchro,Sorder,STOrder] = STS.AdaptiveSPIKEsynchroProfile(time1, time2,threshold)<br></pre><pre style="font-weight: bold; font-style: italic;" class="language-matlab">varargin: Each time <span class="string">moment</span> <span class="string">is</span> <span class="string">given</span> <span class="string">as</span> <span class="string">a</span> <span class="string">separate</span> <span class="string">parameter.</span> <span class="string">Returns</span><br>          the <span class="string">dissimilarity</span> <span class="string">averaged</span> <span class="string">over</span> <span class="string">all</span> <span class="string">time</span> <span class="string">points.</span>
+</pre><pre class="language-matlab">STS.TriggeredISImatrix(varargin)<br>STS.TriggeredAdaptiveISImatrix(threshold, varargin)<br>STS.TriggeredSPIKEmatrix(varargin)<br>STS.TriggeredAdaptiveSPIKEmatrix(threshold, varargin)<br></pre><pre class="language-matlab"><span style="font-weight: bold; font-style: italic;">varargin: Each pair </span><span style="font-weight: bold; font-style: italic;" class="string">of</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">inputs</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">defines</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">a</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">new</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">interval</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">over</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">which</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">the</span><br style="font-weight: bold; font-style: italic;"><span style="font-weight: bold; font-style: italic;">          distance </span><span style="font-weight: bold; font-style: italic;" class="string">is</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">defined.</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">A</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">unique</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">union</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">of</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">the</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">intervals</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">is</span><br style="font-weight: bold; font-style: italic;"><span style="font-weight: bold; font-style: italic;">          used </span><span style="font-weight: bold; font-style: italic;" class="string">when</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">defining</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">the</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">intervals</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">over</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">which</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">the</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">average</span><span style="font-weight: bold; font-style: italic;"> </span><span style="font-weight: bold; font-style: italic;" class="string">is</span><br style="font-weight: bold; font-style: italic;"><span style="font-weight: bold; font-style: italic;">          taken.</span><br></pre><pre class="language-matlab">STS.AveragedISIdistanceMatrix(varargin)<br>STS.AveragedAdaptiveISIdistanceMatrix(threshold, varargin)<br>STS.AveragedSPIKEdistanceMatrix(varargin)<br>STS.AveragedAdaptiveSPIKEdistanceMatrix(threshold, varargin)<br></pre><pre class="language-matlab">Auxiliary <span class="string">functions:</span><br>STS.SetData(spiketrains, beginning, ending )<br>    Replaces <span class="string">the</span> <span class="string">data</span> <span class="string">in</span> <span class="string">the</span> <span class="string">object</span> <span class="string">with</span> <span class="string">new</span> <span class="string">data</span><br>STS.giveDATA()<br>    Gives <span class="string">the</span> <span class="string">a</span> <span class="string">copy</span> <span class="string">of</span> <span class="string">the</span> <span class="string">data</span> <span class="string">array</span> <span class="string">of</span> <span class="string">the</span> <span class="string">object.</span> <span class="string">Data{1}</span> <span class="string">contains</span><br>    the <span class="string">edge</span> <span class="string">corrected</span> <span class="string">data</span> <span class="string">and</span> <span class="string">Data{2}</span> <span class="string">the</span> <span class="string">original</span> <span class="string">spikes.</span><br>STS.giveTHR()<br>    Returns <span class="string">the</span> <span class="string">threshold</span> <span class="string">value</span> <span class="string">obtained</span> <span class="string">from</span> <span class="string">the</span> <span class="string">set</span><br>[time1,time2] = STS.giveTIMES()<br>    Gives <span class="string">the</span> <span class="string">beginning</span> <span class="string">and</span> <span class="string">the</span> <span class="string">end</span> <span class="string">of</span> <span class="string">the</span> <span class="string">recording</span><br>STS.plotSpikeTrainSet(colour,widith)<br>    Plots <span class="string">the</span> <span class="string">spike</span> <span class="string">trains</span> <span class="string">to</span> <span class="string">current</span> <span class="string">axis</span> <span class="string">with</span> <span class="string">colour</span> <span class="string">and</span> <span class="string">spike</span> <span class="string">widith</span><br>    given. Default colour <span class="string">is</span> <span class="string">black.<br></span><img src="chrome://editor/content/images/tag-comment.gif"><!--/introduction--></pre><comment title="/introduction" xmlns="http://disruptive-innovations.com/zoo/nvu"></comment><h2>SpikeTrainSet contents</h2><div>
+<div><ul><li><a href="SpikeTrainSet.html#1">Class for enclosing spiketrains into one class and handling the set.</a></li><li><a href="SpikeTrainSet.html#3">PRIVATE METHODS **************************************************</a></li><li><a href="SpikeTrainSet.html#5">Checking data availability</a></li><li><a href="SpikeTrainSet.html#6">Unique Union</a></li><li><a href="SpikeTrainSet.html#7">Checking that the DATA given is valid</a></li><li><a href="SpikeTrainSet.html#8">Cutting function</a></li><li><a href="SpikeTrainSet.html#10">Check input times</a></li><li><a href="SpikeTrainSet.html#11">Correct the DATA Edges</a></li><li><a href="SpikeTrainSet.html#12">Form pooled spiketrain of all spiketrains</a></li><li><a href="SpikeTrainSet.html#13">Time shift functions.</a></li><li><a href="SpikeTrainSet.html#15">PUBLIC METHODS ***************************************************</a></li><li><a href="SpikeTrainSet.html#16">Constructor</a></li><li><a href="SpikeTrainSet.html#17">Setting data</a></li><li><a href="SpikeTrainSet.html#18">ISI METHODS ----------------------------------------------------</a></li><li><a href="SpikeTrainSet.html#19">ISI-distance for interval/point</a></li><li><a href="SpikeTrainSet.html#20">Adaptive ISI-distance for interval/point</a></li><li><a href="SpikeTrainSet.html#21">ISI-distance/dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#22">Adaptive ISI-distance/dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#23">Triggered ISI-dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#24">Triggered Adaptive ISI-dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#25">Averaged ISI-distance matrix</a></li><li><a href="SpikeTrainSet.html#26">Averaged Adaptive ISI-distance matrix</a></li><li><a href="SpikeTrainSet.html#27">ISI-distance profile</a></li><li><a href="SpikeTrainSet.html#28">Adaptive ISI-distance profile</a></li><li><a href="SpikeTrainSet.html#29">SPIKE METHODS --------------------------------------------------</a></li><li><a href="SpikeTrainSet.html#30">SPIKE-distance for interval/point</a></li><li><a href="SpikeTrainSet.html#31">Adaptive SPIKE-distance for interval/point</a></li><li><a href="SpikeTrainSet.html#32">Rate independent SPIKE distance for interval/point</a></li><li><a href="SpikeTrainSet.html#33">Adaptive Rate independent SPIKE distance for interval/point</a></li><li><a href="SpikeTrainSet.html#34">SPIKE distance/dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#35">Adaptive SPIKE distance/dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#36">Triggered SPIKE-dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#37">Triggered Adaptive SPIKE-dissimilarity matrix</a></li><li><a href="SpikeTrainSet.html#38">Averaged SPIKE-distance matrix</a></li><li><a href="SpikeTrainSet.html#39">Averaged Adaptive SPIKE-distance matrix</a></li><li><a href="SpikeTrainSet.html#40">SPIKE-distance profile</a></li><li><a href="SpikeTrainSet.html#41">Adaptive SPIKE-distance profile</a></li><li><a href="SpikeTrainSet.html#42">SPIKE-Synchronization METHODS ----------------------------------</a></li><li><a href="SpikeTrainSet.html#43">SPIKE-Synchronization</a></li><li><a href="SpikeTrainSet.html#44">Adaptive SPIKE-synchronization</a></li><li><a href="SpikeTrainSet.html#45">SPIKE-synchronization profile</a></li><li><a href="SpikeTrainSet.html#46">Adaptive SPIKE-synchronization profile</a></li><li><a href="SpikeTrainSet.html#47">SPIKE-synchronization matrix</a></li><li><a href="SpikeTrainSet.html#48">Adaptive SPIKE-synchronization matrix</a></li><li><a href="SpikeTrainSet.html#49">Auxiliary functions --------------------------------------------</a></li><li><a href="SpikeTrainSet.html#50">Get function</a></li><li><a href="SpikeTrainSet.html#51">Threshold value extracted from the data</a></li><li><a href="SpikeTrainSet.html#52">Start and end of the data set</a></li><li><a href="SpikeTrainSet.html#53">Plotting function</a></li></ul></div>
+</div><br><h1>Profile v 1.0 29.9.2016: Eero Satuvuori</h1><p>Object for storing the data and plotting ISI-profile and SPIKE-profile</p><pre class="language-matlab">The <span class="string">Profile</span> <span class="string">object</span> <span class="string">is</span> <span class="string">created</span> <span class="string">by</span> <span class="string">the</span> <span class="string">object</span> <span class="string">SpikeTrainSet</span> <span class="string">upon</span> <span class="string">calling</span><br><span class="keyword">for</span> the ISI- and the <span class="string">SPIKE-distance</span> <span class="string">based</span> <span class="string">profiles.</span>
+</pre><pre class="language-matlab">Xvalues = PlotProfileX()<br>    Returns <span class="string">the</span> <span class="string">X-ticks</span> <span class="string">of</span> <span class="string">the</span> <span class="string">profile</span> <span class="string">as</span> <span class="string">a</span> <span class="string">vector</span><br>Yvalues = PlotProfileY()<br>    Returns <span class="string">the</span> <span class="string">Y-values</span> <span class="string">of</span> <span class="string">the</span> <span class="string">profile</span> <span class="string">that</span> <span class="string">are</span> <span class="string">matched</span> <span class="string">to</span> <span class="string">their</span><br>    corresponding <span class="string">index</span> <span class="string">values</span> <span class="string">in</span> <span class="string">the</span> <span class="string">Xvalues.</span><br>Plot(obj,colour,alpha)<br>    Plots <span class="string">the</span> <span class="string">profile</span> <span class="string">to</span> <span class="string">the</span> <span class="string">current</span> <span class="string">axis</span> <span class="string">with</span> <span class="string">colour</span> <span class="string">defined.</span> <span class="string">Alpha</span> <span class="string">is</span><br>    the <span class="string">opacity</span> <span class="string">of</span> <span class="string">the</span> <span class="string">profile.</span> <span class="string">For</span> <span class="string">1</span> <span class="string">the</span> <span class="string">profile</span> <span class="string">is</span> <span class="string">solid</span> <span class="string">and</span> <span class="string">for</span> <span class="string">0.1</span><br>    almost <span class="string">transparent.</span>
+</pre><pre class="codeinput"><span class="keyword"></span><br></pre><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB® R2015b</a></div>
+<font style="font-size: 11pt;"><b><br></b></font><br>
+<font style="font-size: 11pt;"><b><br>
+<br>
+</b></font><span lang="en-us"><p>&nbsp;</p>
+	<p><font style="font-size: 11pt;">See also:</font></p></span>
+<p><b><a href="SPIKY.html"><font size="2">Measuring spike train synchrony 
+	I: &nbsp; SPIKY (graphical user interface)</font></a><font size="2"> </font></b></p>
+
+	
+<p><font size="2">Graphical user interface (Matlab) which can be used to calculate
+	and visualize both the 
+	SPIKE- and the ISI-distance between two (or more) spike trains. 
+	This is an extension and update of the code in II (there you also find the 
+	links to the relevant articles).</font></p>
+
+	
+	<span lang="en-us">
+	<p><b><a href="Monitoring.html"><font style="font-size: 11pt;">Measuring spike train synchrony 
+	III: &nbsp; SPIKE- 
+	and ISI-Distance</font></a><font style="font-size: 11pt;"> </font></b></p>
+	<p><font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> codes to calculate both the 
+	SPIKE- and the ISI-distance between two (or more) spike trains</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the methods please refer to:</font></p>
+
+	<p style="margin-top: 0pt; margin-bottom: 0pt;"><font style="font-size: 11pt;">Kreuz</font><font style="font-size: 11pt;"> T, Chicharro D, Houghton C, Andrzejak RG, 
+	Mormann F:<br>
+	Monitoring spike train synchrony.<br>
+	<i>J Neurophysiol</i> <b>109</b>, 1457 
+	(2013) [<a href="http://wwwold.fi.isc.cnr.it/users/thomas.kreuz/images/Kreuz_JNeurophysiol_2013_SPIKE-distance.pdf">PDF</a>].</font></p>
+	<p style="margin-top: 0pt; margin-bottom: 0pt;"><font style="font-size: 11pt;">Also submitted to the 
+	<a href="http://arxiv.org/pdf/1209.6604v2.pdf">arXiv [PDF]</a>. </font></p>
+	<p><font style="font-size: 11pt;">Kreuz</font><font style="font-size: 11pt;"> T:<br>
+	<a href="http://www.scholarpedia.org/article/SPIKE-distance">SPIKE-distance</a>.<br>
+	<i>Scholarpedia </i></font><span class="subpages">
+	<font style="font-size: 11pt;"><b>7</b>(12),
+	30652 (2012).</font></span></p>
+	
+	<p><b><a href="Event-Sync.html"><font style="font-size: 11pt;">Measuring spike train synchrony 
+	IV: &nbsp; Event Synchronization</font></a></b></p>
+
+	<p><font style="font-size: 11pt;">Matlab-Code to measure the event synchronization and the event delay between two given spike trains</font></p>
+	
+	<p><font style="font-size: 11pt;">For a detailed description of the method please refer to:</font></p>
+
+	<p><font style="font-size: 11pt;">Quian Quiroga R, Kreuz T, and Grassberger P:<br>
+	Event Synchronization: A simple and fast method to measure synchronicity and time delay patterns.<br>
+	<i>Phys.Rev. E</i> <b>66</b>, 041904 (2002) [<a href="../images//QuianQuiroga_PRE_2002_Event-Synchronization.pdf">PDF</a>].</font></p>
+
+
+	<p><b><a href="Directionality.html"><font style="font-size: 11pt;">Measuring spike train synchrony V: &nbsp; Directionality</font></a></b></p>
+	<p><font style="font-size: 11pt;">Matlab code to calculate the directionality measure L between two given spike trains 
+	(or between two continuous datasets or between a spike train and a 
+	continuous dataset)</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the method please refer to:</font></p>
+
+	<p><font style="font-size: 11pt;">Andrzejak RG, Kreuz T:<br>
+	Characterizing unidirectional couplings between point processes and flows.<br>
+	<i>European Physics Letters</i> <b>96</b>, 50012 (2011) [<a href="http://www.fi.isc.cnr.it/users/thomas.kreuz/images/Andrzejak_Kreuz_EPL_2011.pdf">PDF</a>].</font></p>
+	
+
+	<p><b><a href="VanRossum.html"><font style="font-size: 11pt;">Measuring spike train synchrony 
+	V</font></a></b></p></span>
+<p><b><a href="VanRossum.html"><font style="font-size: 11pt;">: &nbsp; van Rossum distance and multi-neuron 
+	extension</font></a></b></p>
+
+	
+<p><font style="font-size: 11pt;">Matlab codes to calculate the
+	spike train metric by van 
+	Rossum and the
+	multi-neuron extension 
+	by Houghton and Sen.</font></p>
+
+	
+<p><font style="font-size: 11pt;">For a detailed description of the method</font></p>
+<p><b><a href="VanRossum.html"><font style="font-size: 11pt;">: &nbsp; van Rossum distance and multi-neuron 
+	extension</font></a></b></p>
+
+	
+<p><font style="font-size: 11pt;">Matlab codes to calculate the
+	spike train metric by van 
+	Rossum and the
+	multi-neuron extension 
+	by Houghton and Sen.</font></p>
+
+	
+<p><font style="font-size: 11pt;">For a detailed description of the method</font></p>
+<span lang="en-us">
+<p><font style="font-size: 11pt;"> please refer to:</font></p>
+
+
+	<p><font style="font-size: 11pt;">Houghton C, Kreuz T:<br>
+	On the efficient calculation of van Rossum distances.<br>
+	<i>Network: Computation in Neural Systems</i> <b>23</b>, 48 (2012) 
+	[<a href="http://www.fi.isc.cnr.it/users/thomas.kreuz/images/Houghton_Kreuz_Draft_2012.pdf">PDF</a>].</font></p>
+        
+	
+<p><b><a href="http://www-users.med.cornell.edu/%7Ejdvicto/pubalgor.html">
+	<font style="font-size: 11pt;">Measuring spike train synchrony 
+	VI: &nbsp;Victor-Purpura distance 
+	and multi-neuron extension</font></a></b></p>
+
+	<p><font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> codes to calculate the
+	spike train metric by Victor-Purpura 
+	and the multi-neuron extension by 
+	Victor-Purpura-Aronov.</font></p>
+	<p><font style="font-size: 11pt;">(Homepage of Prof. Jonathan D. Victor, Cornell, NY, 
+	USA)</font></p>
+	<p><font style="font-size: 11pt;">See also:
+	</font></p>
+	<p><a href="http://www.cns.upf.edu/daniel/Codes.m">
+	<font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> code</font></a><font style="font-size: 11pt;"> for the 
+	Victor-Purpura distance which in addition calculates the percentage of spikes that 
+	have been matched by a time shift as well as the average time shift</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the algorithm please refer to:</font></p>
+	<p><font style="font-size: 11pt;">Chicharro</font><font style="font-size: 11pt;"> D, Kreuz T, Andrzejak RG:<br>
+	What can spike train distances tell us about the neural code?<br>
+	<i>J Neurosci Methods</i> <b>199</b>, 146 (2011) 
+	[<a href="../images/Chicharro_JNeurosciMeth_2011.pdf">PDF</a>].</font></p>
+	&nbsp;<p>
+        
+ 	<font style="font-size: 11pt;">
+        
+ 	<br>
+
+        </font>
+
+        </p>
+
+        <p><font style="font-size: 11pt;">For <b>questions and comments</b> please contact me at "<b>eero.satuvuori (at) unifi.it</b>".</font></p>
+	<p>&nbsp;</p>
+	<p><font style="font-size: 11pt;"><br>
+	These are some <b>keywords</b> to help people to find this page.<br>
+	<br></font><font style="font-size: 11pt;">
+spike train analysis, measuring spike train synchrony, monitoring spike
+train synchrony, ISI-distance, SPIKE-distance, SPIKE-synchronization,
+Adaptive ISI-distance,Adaptive SPIKE-distance, Adaptive
+SPIKE-synchronization, open Matlab source codes, free download</font></p>
+        
+	
+	<span style="font-size: 11pt;">
+        
+	
+	<br>
+	
+	</span>
+	
+	<h2><span style="font-size: 11pt;">Notices</span></h2>
+
+	<h4><span style="font-size: 11pt;">FOR SCIENTIFIC USE ONLY</span></h4>
+
+	<p><font style="font-size: 11pt;">These
+codes are free of charge for research and education purposes only. Any
+commercial or military use of this software is prohibited.</font></p>
+
+	<h4><no warranty=""></no></h4>
+
+	<p><font style="font-size: 11pt;">The software on this site is provided "as-is," without any 
+	expressed or implied warranty. In no event am I or my host institution liable for any 
+	damages arising from the use of the software. Since it is distributed for free, 
+	I do also not take responsibility for any eventual error in it.</font></p><p>
+	<span style="font-size: 11pt;">BSD 
+	license:</span></p><p><font style="font-size: 11pt;">Copyright (c) </font><font style="font-size: 11pt;">2016, Eero Satuvuori</font><br>
+<font style="font-size: 11pt;">
+	All rights reserved.</font></p><p><font style="font-size: 11pt;">Redistribution and use in 
+	source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:<br>
+	* Redistributions of source code must retain the above copyright
+	notice, this list of conditions and the following disclaimer.<br>
+	* Redistributions in binary form must reproduce the above copyright
+	notice, this list of conditions and the following disclaimer in the
+	documentation and/or other materials provided with the distribution.<br>
+	* Neither the name of the author nor the
+	names of its contributors may be used to endorse or promote products
+	derived from this software without specific prior written permission.<br>
+	<br>
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY
+	DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
+	THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<br>
+&nbsp;</font></p><p>
+
+ 	<span style="font-size: 11pt;">
+
+ 	<br>
+
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fi.isc.cnr.it/users/thomas.kreuz/Source-Code/Monitoring.html&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" style="border: medium none ; overflow: hidden; width: 100%; height: 80px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe></span><span style="font-size: 11pt;"><!-- CQ Counter code end --></span></p></span></div>
+
+  <span style="font-size: 11pt;">
+
+  <br style="clear: both;">
+
+  </span>
+
+  <div id="footer">
+  <div style="text-align: right;"><span style="font-size: 11pt;">© 2010 Thomas Kreuz</span></div>  
+  </div>
+ </div>
+ 
+</body></html>

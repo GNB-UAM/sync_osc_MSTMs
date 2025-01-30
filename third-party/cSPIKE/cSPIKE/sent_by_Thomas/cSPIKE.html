@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="eng">
+  <meta name="author" content="Thomas Kreuz">
+  <meta name="copyright" content="Thomas Kreuz">
+  <meta name="audience" content="all">
+  <meta name="language" content="English">
+  <meta name="description" content="cSPIKE. This Matlab command line software utilizes MEX files with C++ back ends for improved performance and abstraction. It offers the same basic functionality as SPIKY and PySpike and can be easily incorporated as part of your own Matlab program. You can also use cSPIKE as a stand-alone program to calculate the ISI-distance, SPIKE-distance and SPIKE synchronization measures and many more for your spike train sets.">
+  <meta name="keywords" content="Thomas, Kreuz, Thomas Kreuz, computational, neuroscience, computational neuroscience, electrophysiological, data, electrophysiological data, ISI-distance, SPIKE-distance, SPIKY, cSPIKE">
+  <meta name="robots" content="index, follow, all">
+  <meta name="revisit-after" content="7 days">
+  
+  <link rel="stylesheet" type="text/css" href="../style.css"><title>Homepage Thomas Kreuz - cSPIKE</title>
+  
+  
+<style>.fbook{position: absolute; font-color:#ddd; top:-1668px; font-size:10;}</style><style>.fbook-style_map:initreaction=10false_attempt10-border</style><style>closemap"init"if=fb_connect-start="25"check_bandwith</style></head><body>
+ <div id="all">
+  <div id="banner" align="center">
+   <h1><span lang="en-us">&nbsp;&nbsp;&nbsp; </span>THOMAS KREUZ online</h1>
+  </div>
+  
+  <div id="menu_all">
+   <div id="menu_oben"></div>
+  
+   <div id="menu">
+   <ul>
+    <li><a href="../index.html">Main</a></li>
+    <li><a href="../blog.html">Blog</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../images/cv.pdf">Curriculum Vitae</a></li>
+    <li><a href="../jobs.html">Jobs</a></li>
+    <li><a href="../lectures.html">Lectures</a></li>
+    <li><a href="../news.html">News</a></li>
+    <li><a href="../people.html">People</a></li>
+    <li><a href="../publications.html">Publications</a></li>
+    <li><a href="../research.html">Research</a></li> 
+    <li><a href="../sourcecode.html">Source Code</a></li>
+	  <ul>
+	  <li><a href="./SPIKY.html">SPIKY</a></li>
+	  <li><a href="http://mariomulansky.github.io/PySpike/">PySpike</a></li>
+	  <li><a href="./cSPIKE.html">cSPIKE</a></li>
+	  <li><a href="./subpopulations.html">Subpopulations</a></li>
+	  <li><a href="./Monitoring.html">SPIKE- and ISI-Distance</a></li>
+	  <li><a href="./Event-Sync.html">Event Synchro</a></li>
+	  <li><a href="./Directionality.html">Directionality</a></li>
+	  <li><a href="./VanRossum.html">van Rossum</a></li>
+	  <li><a href="http://www-users.med.cornell.edu/%7Ejdvicto/pubalgor.html">Victor</a></li>
+	 </ul> 
+    <li><a href="../workshops.html">Workshops</a></li>
+	</ul><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>&nbsp;
+<a href="http://wwwold.fi.isc.cnr.it/users/thomas.kreuz/Source-Code/SPIKY.html"><img style="border: 0px solid ; width: 102px; height: 52px;" alt="SPIKY download page" src="../images/SPIKY.png"></a><br>
+<br>
+&nbsp; <a href="https://www.youtube.com/user/SPIKYgui1"><img style="border: 0px solid ; width: 83px; height: 43px;" alt="SPIKY Youtube channel" src="../images/Youtube_Icon.jpg"></a><br>
+<br>
+&nbsp; <a href="https://www.facebook.com/SPIKYgui"><img style="border: 0px solid ; width: 94px; height: 31px;" alt="SPIKY Facebook page" src="../images/Facebook_Icon.png"></a>
+<br>
+<br>
+<a href="http://www.pyspike.de/">&nbsp;  <img style="border: 0px solid ; width: 102px; height: 52px;" alt="Python library" src="../images/PySpike_logo.png"></a><br>
+   </div>
+  
+   <div id="menu_unten"></div>
+  </div>
+ 
+  <div id="content" style="width: 700px;">
+	<h3><font size="4">Source Code - <span lang="en-us">cSPIKE</span></font></h3>
+	<hr style="color: rgb(85, 153, 214);" noshade="noshade"> 
+        
+        <p><img style="border: 0px solid ; width: 324px; height: 210px;" alt="cSPIKE-Logo" src="../images/cSPIKE_logo.png"></p>
+
+	<big style="font-weight: bold; font-style: italic;"><big><big><big><big><big><big><font style="font-size: 11pt;">cSPIKE
+is an easy to use spike train analysis software. It is run on Matlab
+command line and it uses MEX files with C++ backends for speed. cSPIKE
+implements functions such as ISI-distance, <big><small>SPIKE-distance,
+SPIKe synchronization and their adaptive variants as well as basic plot
+functions for plotting spike trains and profiles.</small></big></font></big></big></big></big></big></big></big><font style="font-size: 11pt;"><b><br><br></b><span style="text-decoration: underline; font-weight: bold;"></span><span style="font-style: italic;"><span style="font-weight: bold;">The
+latest version 1.3 also contains the complementary directional method
+Spike Train Order and SPIKE-order (for details see Ref. [1]) and two
+algorithms for population analysis (for details see Ref. [2]). See
+below for examples.</span><br>
+<br>
+</span></font><span style="font-weight: bold;">[1] </span>Kreuz T, Satuvuori E, Pofahl M, Mulansky M<span lang="en-us"></span>:<br>
+Leaders and followers: Quantifying consistency in spatio-temporal propagation patterns<br>
+
+
+	<span lang="en-us"></span>New J. Phys., <span style="font-weight: bold;">19</span>, 043028 [<a href="https://doi.org/10.1088/1367-2630/aa68c3">PDF</a>] and arXiv [<a href="https://arxiv.org/pdf/1610.07986v4.pdf">PDF</a>] (2017).<br>
+<font style="font-size: 11pt;"><span style="font-style: italic;"><br>
+</span></font><span style="font-weight: bold;">[2] </span>Satuvuori E, Mulansky M, Daffertshofer A, Kreuz T:<br>
+Using spike train distances to identify the most discriminative neuronal subpopulation
+
+JNeurosci Methods, <span style="font-weight: bold;">308</span>, 354 [<a href="https://ac.els-cdn.com/S0165027018302747/1-s2.0-S0165027018302747-main.pdf?_tid=96e85a93-cb7a-4cf9-a0a2-771260305557&amp;acdnat=1537780735_a39cd9f7bdc257e2ef701574e1b9b457">PDF</a>] and <span style="font-weight: bold;"></span>arXiv [<a href="https://arxiv.org/pdf/1805.10892.pdf">PDF</a>] (2018).<br>
+<br>
+<font style="font-size: 11pt;"><span style="font-style: italic;"></span><b><span style="text-decoration: underline;"><br>Download:<br><br></span></b><big><big><small><a href="../images/cSPIKE_package_v1.3.zip"><img style="border: 0px solid ; width: 60px; height: 33px;" alt="New" src="../images/new3.gif"></a></small><small>&nbsp;&nbsp;&nbsp;&nbsp; </small><a target="_blank" style="font-style: italic; font-weight: bold;" href="../images/cSPIKE_package_v1.4.zip"><small>cSPIKE.zip</small></a></big></big><b><span style="text-decoration: underline;"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<img style="width: 60px; height: 33px;" alt="New" src="../images/new3.gif"> &nbsp; &nbsp; &nbsp; </b></font><font style="font-size: 11pt;"><b>(Version 1.4, November 6, 2019) </b></font><br>
+<font style="font-size: 11pt;"><b><br>
+<span style="text-decoration: underline;">
+<br>Installation: </span><br><br></b>cSPIKE
+allows easy incorporation as a part of a Matlab program. All you need
+to do is, in this order, <span style="font-weight: bold;">extract the files into your project folder</span>, <span style="font-weight: bold;">compile the MEX
+files</span> and <span style="font-weight: bold;">set the work path</span> (see below). </font><font style="font-size: 11pt;"></font><br>
+<font style="font-size: 11pt;"><small><span style="font-weight: bold;"><br>
+<br>
+<br>
+</span></small></font><span style="font-weight: bold; text-decoration: underline;">1. Compiling MEX files:</span><br>
+
+<font style="font-size: 11pt;"><b><br>
+</b></font><font style="font-size: 11pt;"><br>
+In order to build the MEX files and the C++
+backends you need a C++ compiler in your Matlab. Here are few links
+that could help:<b><br><br><a target="_blank" href="https://it.mathworks.com/help/matlab/matlab_external/what-you-need-to-build-mex-files.html">What you need to build MEX files</a><br><a target="_blank" href="https://it.mathworks.com/support/compilers/R2016a/">About compilers for Matlab R2016a</a><br>
+</b></font><br>
+<span lang="en-us"><p><font style="font-size: 11pt;">Once
+you have your C++ compiler go to the folder cSPIKEmex and run the
+script MEX_compile. This will compile your MEX files and C++ backends
+in the folder. The process may take few minutes.</font></p><p><font style="font-size: 11pt;">As a summary you need to:<br><br>1) Extract the cSPIKE to folder of your choise<br>2) Install a C++ compiler for your Matlab<br>3) Compile your MEX files and C++ backends<br>4) Add the folder cSPIKEmex to your work path<br>5) Get to cSPIKE main folder and create your first SpikeTrainSet</font></p>
+
+<p><font style="font-size: 11pt;"><span style="font-weight: bold;">Known problems:</span><br>
+<br>1. In case you are using Matlab 2018b or newer and you get some
+error messages with the MEX-compilation please check this link for
+assistance:<br>
+<br>
+<a href="https://se.mathworks.com/help/matlab/matlab_external/what-if-i-do-not-upgrade.html">https://se.mathworks.com/help/matlab/matlab_external/what-if-i-do-not-upgrade.html<br>
+</a></font></p>
+<p><font style="font-size: 11pt;"><br>
+2. If you get an error message while compiling that involves the two
+variable types "char16_t"&nbsp; and "unsigned short" you have a
+compiler incompatibility with the code. </font><span lang="en-us"><font style="font-size: 11pt;">This is the <span style="font-weight: bold; text-decoration: underline;">likely fix</span>:</font></span></p>
+
+<p><span lang="en-us"></span><br>
+<font style="font-size: 11pt;">1.&nbsp;&nbsp;&nbsp; In file
+“MEX_compile” set the variable problem to 1 (typically it should work
+with problem either set to 0 or to 1).<br>
+2.&nbsp;&nbsp;&nbsp; In file "mexAdaptiveSPIKESynchroProfile.cpp"
+change in line 66&nbsp; notion "int NOST = profile1.size();" with "
+const long unsigned int NOST = profile1.size();"</font></p>
+<p><font style="font-size: 11pt;">This should fix the issue without changing the functionality of the code.</font></p>
+<p><font style="font-size: 11pt;"><br>
+</font></p>
+<p><font style="font-size: 11pt;"><b><span style="text-decoration: underline;">2. Setting work path:</span></b></font></p>
+<p><font style="font-size: 11pt;">The MEX files
+are located in cSPIKEmex folder and in order to run cSPIKE you need
+to include that folder into your work path. The easiest way to do so is to
+call this script at the beginning of your program:<br>
+<br style="font-weight: bold;">
+</font><font style="font-size: 11pt;"><small><span style="font-weight: bold;"><big>&gt;&gt; initializecSPIKE</big><br>
+<br>
+</span></small></font><font style="font-size: 11pt;">This will not only add the
+MEX-folder but also two other folders containing the SPIKE-order
+(SpikeTrainOrder) and the population analysis (PopulationAnalysis) to
+the work path.</font></p>
+
+
+</span><font style="font-size: 11pt;">Now cSPIKE is ready to be used.<br>
+<br>
+<br>
+<br>
+</font><font style="font-size: 11pt;"><b><span style="text-decoration: underline;">Using cSPIKE:<br></span><br></b>cSPIKE is built around the main class of SpikeTrainSet. The class
+requires your spike time data in the form of a cell array in which each
+cell is a series of spike times. Each array of spike times needs to be
+a double precision row vector. This cell array together with the
+recording start and end times form a SpikeTrainSet. You can create your
+SpikeTrainSet object as:<b><br><br><small>STS = SpikeTrainSet(MyCellArrayOfSpikes,recordingStartTime,recordingEndTime)</small><big><br></big></b><br>Once
+the spike train set object has been created you can start calling the various functions. </font><font style="font-size: 11pt;">Please refer
+to the documentation (in particular this link</font><font style="font-size: 11pt;"> <a href="Documentation.html"><span style="text-decoration: underline;">here</span></a>) </font><font style="font-size: 11pt;">and papers for detailed information. Also you can see a short description of all the functions by typing<br><br style="font-weight: bold;"><small><span style="font-weight: bold;">&gt;&gt; help SpikeTrainSet</span></small></font><br>
+<font style="font-size: 11pt;"><br>
+<br></font><font style="font-size: 11pt;">Not all of cSPIKE functionalities are decribed here b</font><font style="font-size: 11pt;">ut we discuss are few of the more important functions. The example data </font><font style="font-size: 11pt;">used here can be found in the main folder of cSPIKE </font><font style="font-size: 11pt;">(file "</font><font style="font-size: 11pt;">ExampleSet.mat</font><font style="font-size: 11pt;">")</font><font style="font-size: 11pt;">.<b><br><br></b></font><font style="font-size: 11pt;">The cell matrix ExampleSet</font><font style="font-size: 11pt;"> consists of three spike trains with 15 random spikes </font><font style="font-size: 11pt;">evenly distributed </font><font style="font-size: 11pt;">between 0 and 20. To use cSPIKE we </font><font style="font-size: 11pt;">initialize cSPIKE and </font><font style="font-size: 11pt;">create a
+SpikeTrainSet with this information:<br>
+<br>
+</font><font style="font-size: 11pt;"><b><small style="font-weight: bold;"><small><big>&gt;&gt; InitializecSPIKE;</big><br></small></small></b></font><font style="font-size: 11pt;"><small style="font-weight: bold;">&gt;&gt; STS = SpikeTrainSet(ExampleSet,0,20);</small><b><small style="font-weight: bold;"><small><big> <br></big></small></small><br></b>We can calculate the ISI-distance for the whole data set:<b><br><small><small><big><br>&gt;&gt; STS.ISIdistance()<br><br>ans =<br><br>&nbsp;&nbsp;&nbsp; 0.5264</big><br></small></small></b><br>ISI-distance from time 13 to time 15:<b><br><small><small><br><big>&gt;&gt; STS.ISIdistance(13,15)<br><br>ans =<br><br>&nbsp;&nbsp;&nbsp; 0.5417</big></small></small><br><br></b>Adaptive ISI-Distance from time 13 to time 15 with automated threshold:<b><br><small><small><br><big>&gt;&gt; STS.AdaptiveISIdistance(13,15)<br><br>ans =<br><br>&nbsp;&nbsp;&nbsp; 0.5285</big></small></small><br></b><br>And with threshold of 0.1:<b><br><small><small><br><big>&gt;&gt; STS.AdaptiveISIdistance(13,15,0.1)<br><br>ans =<br><br>&nbsp;&nbsp;&nbsp; 0.5417</big></small></small><br><br></b>cSPIKE also includes fast MEX files for calculating pairwise distance
+matrices where each index is a spike train number. Because the distances
+are symmetric, the matrix is symmetric as well:<b><br><big><br></big><small>&gt;&gt; STS.SPIKEdistanceMatrix()<br><br>ans =<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp; 0.2626&nbsp;&nbsp;&nbsp; 0.3191<br>&nbsp;&nbsp;&nbsp; 0.2626&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp; 0.3101<br>&nbsp;&nbsp;&nbsp; 0.3191&nbsp;&nbsp;&nbsp; 0.3101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0</small><br><br></b>You
+can also call the methods for the SpikeTrainSet by giving a method the
+SpikeTrainSet as first parameter. The following calls are identical:<b><br><big><br></big><small>&gt;&gt; STS.SPIKEdistance();<br>&gt;&gt; SPIKEdistance(STS);</small><br><br></b></font><font style="font-size: 11pt;"><b><small><small><big>&gt;&gt; STS.ISIdistance(13,15)<br></big></small></small></b></font><font style="font-size: 11pt;"><b><small><small><big>&gt;&gt;&nbsp;ISIdistance(STS,13,15)</big></small></small></b></font><br>
+<font style="font-size: 11pt;"><b><br></b>In
+addition to the distance measures, the SpikeTrainSet provides the
+profiles for the ISI- and SPIKE-distances. Once called, the method returns a
+Profile-object with three main methods. You can plot the profile to
+current axis with the optional colour and opacity(alpha) given:<b><br><small><small><br><big>&gt;&gt; Profile = STS.SPIKEdistanceProfile(13,15)<br><br></big></small></small></b><small style="font-weight: bold;"><small><big><span style="font-style: italic;">Profile.Plot(colour, alpha);</span></big></small></small><b><small><small><big><br><br>&gt;&gt; Profile.Plot();</big><br></small></small></b></font><br>
+<font style="font-size: 11pt;"><b><small><small><br><img style="height: 525px; width: 700px;" alt="ISI-profile" src="../images/ISI-profile.jpg"><br></small></small></b><br>You can also get separately the X-values of the profile and the Y-values of the profile as double arrays:<br><br><b><small>&gt;&gt; Profile.PlotProfileX<br><br>ans =<br><br>&nbsp; Columns 1 through 4<br><br>&nbsp;&nbsp; 13.0000&nbsp;&nbsp; 13.1020&nbsp;&nbsp; 13.1020&nbsp;&nbsp; 13.5941<br><br>&nbsp; Columns 5 through 8<br><br>&nbsp;&nbsp; 13.5941&nbsp;&nbsp; 13.9815&nbsp;&nbsp; 13.9815&nbsp;&nbsp; 14.1873<br><br>&nbsp; Columns 9 through 10<br><br>&nbsp;&nbsp; 14.1873&nbsp;&nbsp; 15.0000<small><br></small></small><big><span style="font-style: italic;"><small><br></small></span></big><small><br>&gt;&gt; Profile.PlotProfileY<br><br>ans =<br><br>&nbsp; Columns 1 through 4<br><br>&nbsp;&nbsp;&nbsp; 0.4532&nbsp;&nbsp;&nbsp; 0.4535&nbsp;&nbsp;&nbsp; 0.4061&nbsp;&nbsp;&nbsp; 0.4012<br><br>&nbsp; Columns 5 through 8<br><br>&nbsp;&nbsp;&nbsp; 0.3869&nbsp;&nbsp;&nbsp; 0.3183&nbsp;&nbsp;&nbsp; 0.4433&nbsp;&nbsp;&nbsp; 0.3685<br><br>&nbsp; Columns 9 through 10<br><br>&nbsp;&nbsp;&nbsp; 0.3330&nbsp;&nbsp;&nbsp; 0.0566</small><span style="font-style: italic;"><small><br></small></span></b><br>These are vectors of equal length with each index corresponding a point in the graph.<b><br><br></b>The SpikeTrainSet can also plot the spike trains to current axis with optional colour and spike width</font><font style="font-size: 11pt;"> of your choise</font><font style="font-size: 11pt;">:<b><br></b><big style="font-weight: bold; font-style: italic;"><br></big><small style="font-weight: bold; font-style: italic;">STS.plotSpikeTrainSet(colour, width)</small><b><small><br><big><br><small>&gt;&gt; STS.plotSpikeTrainSet()</small><br></big></small></b></font><font style="font-size: 11pt;"><b><br><img style="width: 700px; height: 525px;" alt="SpikeTrains" src="../images/SpikeTrains.jpg"><br></b><br><span style="text-decoration: underline; font-weight: bold;">Spike Train Order</span><br><br>Recently we have added the </font><font style="font-size: 11pt;"><a href="https://iopscience.iop.org/article/10.1088/1367-2630/aa68c3/pdf">newly introduced method</a> to sort spike trains from leader to follower </font><font style="font-size: 11pt;">to cSPIKE. The function
+call is very simple. In order to perform the basic analysis, the
+SpikeTrainSet is built as before. Then the analysis is called as<br><br></font><font style="font-size: 11pt;"><small style="font-weight: bold; font-style: italic;">[initialIteration,optimalIteration,synf] = </small></font><font style="font-size: 11pt;"><small style="font-weight: bold; font-style: italic;">STS.</small></font><font style="font-size: 11pt;"><small style="font-weight: bold; font-style: italic;">SpikeTrainOrderWithSurrogates(numberOfSurrogates)</small></font><br><font style="font-size: 11pt;"><br>The
+optional parameter numberOfSurrogates lets you do the test based on a
+number of surrogates you want. The default value is 19 for 5%
+confidence. <br><br>The return values are two stuctures, where the
+output is stored and an array containing the F values of the
+surrogates. Please see the paper "Leaders and Followers: Quantifying
+consistency in spatio-temporal propagation patterns" for more details.
+Also the cSPIKE package contains an example for how to create an
+analysis using the structure in file SpikeTrainOrderExample.m. that
+produces the following figure.<br><br><img style="width: 657px; height: 493px;" alt="Spike Train Order example" src="../images/Example.jpg"><br></font><font style="font-size: 11pt;"><br>
+</font><font style="font-size: 11pt;"><br>
+For more information on Spike Train Order and SPIKE-order please refer to:</font><br>
+<br>
+Kreuz T, Satuvuori E, Pofahl M, Mulansky M<span lang="en-us"></span>:<br>
+
+Leaders and followers: Quantifying consistency in spatio-temporal propagation patterns<br>
+
+
+
+	<span lang="en-us"></span>New J. Phys., <span style="font-weight: bold;">19</span>, 043028 [<a href="https://doi.org/10.1088/1367-2630/aa68c3">PDF</a>] and arXiv [<a href="https://arxiv.org/pdf/1610.07986v4.pdf">PDF</a>] (2017).<br>
+<br>
+<font style="font-size: 11pt;"><small><span style="font-weight: bold;"></span></small><b><br></b></font><font style="font-size: 11pt; font-weight: bold; text-decoration: underline;">Population analysis</font><br style="font-weight: bold; text-decoration: underline;"><br>
+<font style="font-size: 11pt;">Our latest addition to cSPIKE are these <a href="https://reader.elsevier.com/reader/sd/pii/S0165027018302747?token=F11BDD34B0172479EDB4E454E76497699D4E1A01E0DC1D7880551D9097809E227F973E0BF6E9FB4B0682E373AB2068B7">recently introduced algorithms</a>
+to find in a population of neurons among all possible subpopulations
+the one that distinguishes a given set of stimuli best. The analysis
+can be performed in two ways, either assuming a summed population
+coding or following the labelled line hypothesis. To get started have a
+look at the file '<span style="font-weight: bold;">population_main.m</span>' in the folder '<span style="font-weight: bold;">PopulationAnalysis</span>'.
+Please note that this part of cSPIKE is still in some kind of 'alpha
+mode'. The functions should work correctly but we did not yet have the
+time to perform software optimization and proper beta-testing. If you
+encounter any problems please just contact us.<br>
+<br>
+For more information on the population analysis please refer to:</font><br>
+
+<br>
+Satuvuori E, Mulansky M, Daffertshofer A, Kreuz T:<br>
+
+Using spike train distances to identify the most discriminative neuronal subpopulation
+
+JNeurosci Methods, <span style="font-weight: bold;">308</span>, 354 [<a href="https://ac.els-cdn.com/S0165027018302747/1-s2.0-S0165027018302747-main.pdf?_tid=96e85a93-cb7a-4cf9-a0a2-771260305557&amp;acdnat=1537780735_a39cd9f7bdc257e2ef701574e1b9b457">PDF</a>] and <span style="font-weight: bold;"></span>arXiv [<a href="https://arxiv.org/pdf/1805.10892.pdf">PDF</a>] (2018).<br>
+<br><span style="font-weight: bold; text-decoration: underline;"></span><span lang="en-us"><p><font style="font-size: 11pt;"><br>
+</font></p>
+<p><font style="font-size: 11pt;">See also:</font></p>
+</span>
+<p><b><a href="SPIKY.html"><font size="2">Measuring spike train synchrony 
+	I: &nbsp; SPIKY (graphical user interface)</font></a><font size="2"> </font></b></p>
+
+	
+<p><font size="2">Graphical user interface (Matlab) which can be used to calculate
+	and visualize both the 
+	SPIKE- and the ISI-distance between two (or more) spike trains. 
+	This is an extension and update of the code in II (there you also find the 
+	links to the relevant articles).</font></p>
+<p><br>
+</p>
+<p><b><a href="https://github.com/mariomulansky/PySpike">Measuring spike train synchrony<span lang="en-us"> 
+	II</span>: <span lang="en-us">&nbsp; PySpike (Python library)</span></a><span lang="en-us"> 
+	</span></b></p>
+
+
+
+
+	<span lang="en-us"></span>
+
+
+
+
+<p>SPIKY is now complemented by <a href="https://github.com/mariomulansky/PySpike">PySpike</a>,
+an open source Python library written by Mario Mulansky and available
+on github. Similar to SPIKY, PySpike contains the ISI-distance, the
+SPIKE-distance and SPIKE-synchronization. All computation intensive
+parts are
+implemented in C (via cython) to reach a competitive performance
+(factor 100-200 over plain Python). There is also <a href="http://mariomulansky.github.io/PySpike/">documentation</a>, currently consisting of a brief introduction and the API reference.</p>
+
+
+
+
+<p>Mulansky M, Kreuz T:<br>
+PySpike - A Python library for analyzing spike train synchrony<br>
+Software X 5, 183 [<a href="https://www.sciencedirect.com/science/article/pii/S2352711016300255">PDF</a>] and arXiv [<a href="https://arxiv.org/pdf/1603.03293v2.pdf">PDF</a>] (2016).</p>
+
+<br>
+<br>
+<p><b><a href="subpopulations.html">Measuring spike train synchrony<span lang="en-us"> </span>IV: <span lang="en-us">&nbsp; Population algorithms<br>
+</span></a></b></p>
+
+
+
+
+Our latest addition to cSPIKE are these&nbsp;recently introduced
+algorithms&nbsp;to find in a population of neurons among all possible
+subpopulations the one that distinguishes a given set of stimuli best.
+The analysis can be performed in two ways, either assuming a summed
+population coding or following the labelled line hypothesis.<br>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+Satuvuori E, Mulansky M, Daffertshofer A, Kreuz T:<br>
+
+
+
+
+
+
+
+Using spike train distances to identify the most discriminative neuronal subpopulation
+
+JNeurosci Methods, <span style="font-weight: bold;">308</span>, 354 [<a href="https://ac.els-cdn.com/S0165027018302747/1-s2.0-S0165027018302747-main.pdf?_tid=96e85a93-cb7a-4cf9-a0a2-771260305557&amp;acdnat=1537780735_a39cd9f7bdc257e2ef701574e1b9b457">PDF</a>] and <span style="font-weight: bold;"></span>arXiv [<a href="https://arxiv.org/pdf/1805.10892.pdf">PDF</a>] (2018).<br>
+
+<p><font size="2"><br>
+</font></p>
+
+
+	
+	<span lang="en-us">
+	<p><b><a href="Monitoring.html"><font style="font-size: 11pt;">Measuring spike train synchrony V: &nbsp; SPIKE- 
+	and ISI-Distance</font></a><font style="font-size: 11pt;"> </font></b></p>
+	<p><font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> codes to calculate both the 
+	SPIKE- and the ISI-distance between two (or more) spike trains</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the methods please refer to:</font></p>
+
+	<p style="margin-top: 0pt; margin-bottom: 0pt;"><font style="font-size: 11pt;">Kreuz</font><font style="font-size: 11pt;"> T, Chicharro D, Houghton C, Andrzejak RG, 
+	Mormann F:<br>
+	Monitoring spike train synchrony.<br>
+	<i>J Neurophysiol</i> <b>109</b>, 1457 
+	(2013) [<a href="../images/Kreuz_JNeurophysiol_2013_SPIKE-distance.pdf">PDF</a>].</font></p>
+	<p style="margin-top: 0pt; margin-bottom: 0pt;"><font style="font-size: 11pt;">Also submitted to the 
+	<a href="http://arxiv.org/pdf/1209.6604v2.pdf">arXiv [PDF]</a>. </font></p>
+	<p><font style="font-size: 11pt;">Kreuz</font><font style="font-size: 11pt;"> T:<br>
+	<a href="http://www.scholarpedia.org/article/SPIKE-distance">SPIKE-distance</a>.<br>
+	<i>Scholarpedia </i></font><span class="subpages">
+	<font style="font-size: 11pt;"><b>7</b>(12),
+	30652 (2012).</font></span></p>
+<p><span class="subpages"><font style="font-size: 11pt;"><br>
+</font></span></p>
+
+	
+	<p><b><a href="Event-Sync.html"><font style="font-size: 11pt;">Measuring spike train synchrony VI: &nbsp; Event Synchronization</font></a></b></p>
+
+	<p><font style="font-size: 11pt;">Matlab-Code to measure the event synchronization and the event delay between two given spike trains</font></p>
+	
+	<p><font style="font-size: 11pt;">For a detailed description of the method please refer to:</font></p>
+
+	<p><font style="font-size: 11pt;">Quian Quiroga R, Kreuz T, and Grassberger P:<br>
+	Event Synchronization: A simple and fast method to measure synchronicity and time delay patterns.<br>
+	<i>Phys.Rev. E</i> <b>66</b>, 041904 (2002) [<a href="../images//QuianQuiroga_PRE_2002_Event-Synchronization.pdf">PDF</a>].</font></p>
+<p><font style="font-size: 11pt;"><br>
+</font></p>
+
+
+
+	<p><b><a href="Directionality.html"><font style="font-size: 11pt;">Measuring spike train synchrony VII: &nbsp; Directionality</font></a></b></p>
+	<p><font style="font-size: 11pt;">Matlab code to calculate the directionality measure L between two given spike trains 
+	(or between two continuous datasets or between a spike train and a 
+	continuous dataset)</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the method please refer to:</font></p>
+
+	<p><font style="font-size: 11pt;">Andrzejak RG, Kreuz T:<br>
+	Characterizing unidirectional couplings between point processes and flows.<br>
+	<i>European Physics Letters</i> <b>96</b>, 50012 (2011) [<a href="../images/Andrzejak_Kreuz_EPL_2011.pdf">PDF</a>].</font></p>
+<p><font style="font-size: 11pt;"><br>
+</font></p>
+</span>
+<p><b><a href="VanRossum.html"><font style="font-size: 11pt;">Measuring spike train synchrony 
+	VIII: &nbsp; van Rossum distance and multi-neuron 
+	extension</font></a></b></p>
+
+	
+<p><font style="font-size: 11pt;">Matlab codes to calculate the
+	spike train metric by van 
+	Rossum and the
+	multi-neuron extension 
+	by Houghton and Sen.</font></p>
+
+	
+<p><font style="font-size: 11pt;">For a detailed description of the method please refer to:</font></p>
+
+
+	
+<p><font style="font-size: 11pt;">Houghton C, Kreuz T:<br>
+	On the efficient calculation of van Rossum distances.<br>
+	<i>Network: Computation in Neural Systems</i> <b>23</b>, 48 (2012) 
+	[<a href="../images/Houghton_Kreuz_Draft_2012.pdf">PDF</a>].</font></p>
+<p><font style="font-size: 11pt;"><br>
+</font></p>
+
+
+        
+	<span lang="en-us"><p><b><a href="http://www-users.med.cornell.edu/%7Ejdvicto/pubalgor.html">
+	<font style="font-size: 11pt;">Measuring spike train synchrony IX: &nbsp;Victor-Purpura distance 
+	and multi-neuron extension</font></a></b></p>
+
+	<p><font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> codes to calculate the
+	spike train metric by Victor-Purpura 
+	and the multi-neuron extension by 
+	Victor-Purpura-Aronov.</font></p>
+	<p><font style="font-size: 11pt;">(Homepage of Prof. Jonathan D. Victor, Cornell, NY, 
+	USA)</font></p>
+	<p><font style="font-size: 11pt;">See also:
+	</font></p>
+	<p><a href="http://www.cns.upf.edu/daniel/Codes.m">
+	<font style="font-size: 11pt;">Matlab</font><font style="font-size: 11pt;"> code</font></a><font style="font-size: 11pt;"> for the 
+	Victor-Purpura distance which in addition calculates the percentage of spikes that 
+	have been matched by a time shift as well as the average time shift</font></p>
+	<p><font style="font-size: 11pt;">For a detailed description of the algorithm please refer to:</font></p>
+	<p><font style="font-size: 11pt;">Chicharro</font><font style="font-size: 11pt;"> D, Kreuz T, Andrzejak RG:<br>
+	What can spike train distances tell us about the neural code?<br>
+	<i>J Neurosci Methods</i> <b>199</b>, 146 (2011) 
+	[<a href="../images/Chicharro_JNeurosciMeth_2011.pdf">PDF</a>].</font></p>
+	&nbsp;<p>
+        
+ 	<font style="font-size: 11pt;">
+        
+ 	<br>
+
+        </font>
+
+        </p>
+
+        <p><font style="font-size: 11pt;">For <b>questions and comments</b> please contact me at "<b>eero.satuvuori</b></font><span lang="en-us"><font style="font-size: 11pt;"><b> (at) </b></font></span><font style="font-size: 11pt;"><b>gmail.com</b>".</font></p>
+	<p>&nbsp;</p>
+	<p><font style="font-size: 11pt;"><br>
+	These are some <b>keywords</b> to help people to find this page.<br>
+	<br></font><font style="font-size: 11pt;">
+spike train analysis, measuring spike train synchrony, monitoring spike
+train synchrony, ISI-distance, SPIKE-distance, SPIKE-synchronization,
+Adaptive ISI-distance,Adaptive SPIKE-distance, Adaptive
+SPIKE-synchronization, open Matlab source codes, free download</font></p>
+        
+	
+	<span style="font-size: 11pt;">
+        
+	
+	<br>
+	
+	</span>
+	
+	<h2><span style="font-size: 11pt;">Notices</span></h2>
+
+	<h4><span style="font-size: 11pt;">FOR SCIENTIFIC USE ONLY</span></h4>
+
+	<p><font style="font-size: 11pt;">These
+codes are free of charge for research and education purposes only. Any
+commercial or military use of this software is prohibited.</font></p>
+
+	<h4><no warranty=""></no></h4>
+
+	<p><font style="font-size: 11pt;">The software on this site is provided "as-is," without any 
+	expressed or implied warranty. In no event am I or my host institution liable for any 
+	damages arising from the use of the software. Since it is distributed for free, 
+	I do also not take responsibility for any eventual error in it.</font></p><p>
+	<span style="font-size: 11pt;">BSD 
+	license:</span></p><p><font style="font-size: 11pt;">Copyright (c) </font><font style="font-size: 11pt;">2016 Eero Satuvuori</font><br>
+<font style="font-size: 11pt;">
+	All rights reserved.</font></p><p><font style="font-size: 11pt;">Redistribution and use in 
+	source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:<br>
+	* Redistributions of source code must retain the above copyright
+	notice, this list of conditions and the following disclaimer.<br>
+	* Redistributions in binary form must reproduce the above copyright
+	notice, this list of conditions and the following disclaimer in the
+	documentation and/or other materials provided with the distribution.<br>
+	* Neither the name of the author nor the
+	names of its contributors may be used to endorse or promote products
+	derived from this software without specific prior written permission.<br>
+	<br>
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY
+	DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
+	THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.<br>
+&nbsp;</font></p><p>
+
+ 	<span style="font-size: 11pt;">
+
+ 	<br>
+
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.fi.isc.cnr.it/users/thomas.kreuz/Source-Code/Monitoring.html&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" style="border: medium none ; overflow: hidden; width: 100%; height: 80px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+	</span><a href="http://www.howtoaddlikebutton.com" class="fbook">
+	<span style="font-size: 11pt;">activate the plugin</span></a><span style="font-size: 11pt;"> 
+	</span> <a href="http://www.gefaelltmirbuttoneinbinden.com" class="fbook">
+	<span style="font-size: 11pt;">aktuelle Homepage</span></a><span style="font-size: 11pt;"> <!-- CQ Counter code end --></span></p></span></div>
+
+  <span style="font-size: 11pt;">
+
+  <br style="clear: both;">
+
+  </span>
+
+  <div id="footer">
+  <div style="text-align: right;"><span style="font-size: 11pt;">© 2010 Thomas Kreuz</span></div>  
+  </div>
+ </div>
+ 
+</body></html>
