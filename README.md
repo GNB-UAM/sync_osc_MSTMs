@@ -61,7 +61,7 @@ which recapitulate the corresponding functions used for the synthetic spike trai
 
 ## Organizing data segments using clustering
 A visualization of each dataset through the lens of the MSTM library, as in Fig 7, can be obtained by using `multi_train_anal_win_cluster.m`.
-![fig_see](https://github.com/user-attachments/assets/8a4bbb11-4086-4545-90d2-6e395437d90c)
+![fig_see](https://github.com/user-attachments/assets/7954b88c-d3d5-4f86-b028-229f9e0e9394)
 
 
 # Augmenting the MSTM library with new measures
