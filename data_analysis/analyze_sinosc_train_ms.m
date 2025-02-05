@@ -56,23 +56,34 @@ end
 
 network_spikes=network_spiketimes(spiketimes,Rp_dt,sim_time);
 
+% Mean firing rate
 f_rate=1000.*mean(nspikes)./sim_time;
+
+% ISI CV
 cv_ISI=std_ISI./mean_ISI;
 
+% ISI CV2
 [cv2_ISI_vect cv2_ISI]=spiketimes_stat_cv2(spiketimes);
 
+% Local variation
 [Lv_ISI_vect,Lv_ISI]=spiketimes_stat_lv(spiketimes);
 
+% Revised local variation
 [LvR_ISI_vect,LvR_ISI]=spiketimes_stat_lvr(spiketimes,t_refr);
 
+% ISI log CV
 [LCV_ISI_vect,LCV_ISI]=spiketimes_stat_lcv(spiketimes);
 
+% Irregularity
 [IR_ISI_vect,IR_ISI]=spiketimes_stat_ir(spiketimes);
 
+% Log ISI entropy
 [ent_ISI_vect,ent_ISI]=spiketimes_stat_entropy(spiketimes);
 
+% Miura ISI irregularity
 [SM_ISI_vect,SM_ISI]=spiketimes_stat_SMiura(spiketimes);
 
+% Tiesinga--Sejnowski synchrony
 bursty=burstiness(spiketimes);
 
 params=struct('tapers',[5 9],'pad',0,'Fs',1000./Rp_dt,'fpass',[0.1 120],'err',0,'trialave',0);
@@ -87,17 +98,20 @@ f_high=30;
 psd_max_high_f=f_vect_mt(psd_max_high_ind);
 
 
-
+% Mean Phase Coherence
 tic
 [MPC,MPCE,MPCI,phase_coherence_mat]=phase_coherence_ei(spiketimes,n_neu);
 fprintf('phase_coherence takes\n');
 toc
 
+% Pairwise phase consistency
 tic
 [PPC,PPCE,PPCI,ppc_mat]=pairwise_phase_consistency_ei(spiketimes,n_neu);
 fprintf('pairwise_phase_consistency takes\n');
 toc
 
+% Victor--Purpura distance
+% Normalized Victor--Purpura distance
 tic
 % VPq=1.;
 for tau_ind=1:length(tau_vect)
@@ -109,7 +123,8 @@ end
 fprintf('VictorPurpuramex_allpairs takes\n');
 toc
 
-
+% Van Rossum distance
+% Normalized van Rossum distance
 tic
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
@@ -120,7 +135,7 @@ end
 fprintf('vanRossumv_allpairs takes\n');
 toc
 
-
+% Hunter--Milton similarity
 tic
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
@@ -130,6 +145,8 @@ end
 fprintf('HunterMilton_allpairs takes\n');
 toc
 
+% Quian Quiroga event synchronization
+% Quian Quiroga delay asymmetry
 tic
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
@@ -140,11 +157,15 @@ end
 fprintf('QuianQuiroga_allpairs takes\n');
 toc
 
+% Quian Quiroga event synchronization, timescale adaptive version
+% Quian Quiroga delay asymmetry, timescale adaptive version
 tic
 [QQA,qqa]=QuianQuirogaA_allpairs(spiketimes,n_neu);
 fprintf('QuianQuirogaA_allpairs takes\n');
 toc
 
+% Earth Mover’s Distance
+% Normalized Earth Mover’s Distance
 tic
 [emd,emdn]=Wasserstein_allpairs(spiketimes,n_neu,par.sim_time);
 fprintf('Wasserstein_allpairs takes\n');
@@ -244,13 +265,15 @@ else
 
 end
 
-
+% Golomb--Rinzel synchrony
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
     golomb_sync(tau_ind)=golomb_synchrony(spiketimes,sim_time,tau,10.*inct); % 10.*inct is the discretization resolution, no need to change it
     eval(['golomb_sync' num2str(tau) '=golomb_sync(tau_ind);']);
 end
 
+% Schreiber correlation
+% Kruskal correlation
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
     [schreiber_c(tau_ind), kruskal_c(tau_ind)]=schreiber_corr(spiketimes,sim_time,tau,10.*inct); % 10.*inct is the discretization resolution, no need to change it
@@ -258,6 +281,7 @@ for tau_ind=1:length(tau_vect)
     eval(['kruskal_c' num2str(tau) '=kruskal_c(tau_ind);']);
 end
 
+% Spike time tiling coefficient
 tic
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
@@ -267,6 +291,7 @@ end
 fprintf('sttc takes\n');
 toc
 
+% Correlation index
 tic
 for tau_ind=1:length(tau_vect)
     tau=tau_vect(tau_ind);
@@ -276,17 +301,21 @@ end
 fprintf('corr ind takes\n');
 toc
 
+% Modulus-Metric Distance
+% Normalized Modulus-Metric Distance
 tic
 modulus_m=modulus_metric_wrapper(spiketimes,sim_time);
 modulus_mn=modulus_m./sim_time;
 fprintf('modulus metric takes\n');
 toc
 
+% Spike-Contrast
 tic
 Sc=SpikeContrastWrapper(spiketimes,sim_time);
 fprintf('SpikeContrast takes\n');
 toc
 
+% LZ-distance
 tic
 LZdist=LZ_distance(spiketimes,sim_time,1.); % one order of magnitude larger
 fprintf('LZ_distance takes\n');
@@ -316,16 +345,19 @@ end
 % InitializecSPIKE
 STS=SpikeTrainSet(spikes,para.tmin,para.tmax);
 
+% ISI-distance
 tic
 SPIKY_ISI = STS.ISIdistance(para.tmin, para.tmax);
 fprintf('SPIKY_ISI takes\n');
 toc
 
+% SPIKE-distance
 tic
 SPIKY_SPIKE = STS.SPIKEdistance(para.tmin, para.tmax);
 fprintf('SPIKY_SPIKE takes\n');
 toc
 
+% SPIKE-synchronization
 tic
 SPIKY_SPIKE_synchro = STS.SPIKEsynchro(para.tmin,para.tmax);
 fprintf('SPIKY_SPIKE_synchro takes\n');
@@ -364,6 +396,8 @@ STS=SpikeTrainSet(spikes_with_spikes,para.tmin,para.tmax);
 % fprintf('SPIKY_SPIKE_synchro takes\n');
 % toc
 
+% Synfire indicator corresponding to the original neuron index ordering - not used in the paper
+% Synfire indicator as used in the paper (corresponding to the optimal ordering of neurons from leaders to followers) is calculated in analyze_sinosc_train_synfireind.m
 tic
 SPIKY_SPIKE_order = STS.SpikeTrainOrderWithSurrogates(0); % this gives an error if there are neurons with no spikes
 SPIKY_SPIKE_order=SPIKY_SPIKE_order.SynfireIndicatorF;

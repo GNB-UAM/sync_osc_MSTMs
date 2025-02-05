@@ -6,6 +6,7 @@ if isempty(png_tail)
     FontSizeThisCb=16;
 elseif strcmp(png_tail,'_bs')
     get_field_names_bs;
+    XFontSizeThis=10; % a bit smaller for x axis
     FontSizeThis=11;
     FontSizeThisCb=16;
 else
@@ -192,6 +193,10 @@ set(gca,'XTickLabels',strrep(field_names_long_wc_ms(Aprime_sorted_ind),'_','\_')
 xtickangle(gca,45);
 set(gca,'YTick',1:1:length(field_names_long_wc_ms));
 set(gca,'YTickLabels',strrep(field_names_long_wc_ms(Aprime_sorted_ind),'_','\_'));
+if exist('XFontSizeThis','var')
+    ca=get(gca);
+    ca.XAxis.FontSize=XFontSizeThis;
+end
 cbh=colorbar;
 set(cbh,'FontSize',FontSizeThisCb);
 pos_vect=get(gca,'Position');
@@ -266,6 +271,10 @@ set(gca,'XTickLabels',strrep(field_names_long_wc_ms(Aprime_sorted_ind),'_','\_')
 xtickangle(gca,45);
 set(gca,'YTick',1:1:length(field_names_long_wc_ms));
 set(gca,'YTickLabels',strrep(field_names_long_wc_ms(Aprime_sorted_ind),'_','\_'));
+if exist('XFontSizeThis','var')
+    ca=get(gca);
+    ca.XAxis.FontSize=XFontSizeThis;
+end
 cbh=colorbar;
 set(cbh,'FontSize',FontSizeThisCb);
 pos_vect=get(gca,'Position');
