@@ -365,6 +365,53 @@ end
 
 
 
+clip_v=-min(min(sync_all_zs_sorted));
+
+figure;
+set(gcf,'Color',[1 1 1]);
+set(gcf,'Position',[4           7        1917         769]);
+imagesc(min(sync_all_zs_sorted,clip_v),'AlphaData',imAlpha);
+set(gca,'color',0.8*[1 1 1]);
+set(gca,'Position',[0.1061    0.1022    0.8550    0.8328]);
+cbh=colorbar;
+xlabel('time windows (ordered chronologically per recording)');
+set(gca,'YTick',1:1:length(field_names));
+set(gca,'YTickLabel',{'','','','','','','','',''});
+for imeas=1:length(field_names)
+    text(-2,imeas,field_names_long_ms{output_this.outperm_absspearmancorr_avg(imeas)},'Interpreter','none','HorizontalAlignment','right','VerticalAlignment','middle','Rotation',0,'FontSize',FontSizeThis,'Color',field_colors{output_this.outperm_absspearmancorr_avg(imeas)}); % we might add color later, to indicate monovariate, bivariate, multivariate
+end
+xlim(0.5+[0 i_train]);
+xtick_vect=get(gca,'XTick');
+if xtick_vect(end)==800 % this fixes the problem with the legend going beyond the limits for Form22
+    set(gca,'XTick',xtick_vect(1:end-1));
+end
+pos_vect=get(cbh,'Position');
+set(gca,'Position',[0.1061    0.1022    0.8550    0.8328]);
+clim_this=get(gca,'CLim');
+ylim_vect=get(gca,'YLim');
+hold on;
+for ifile=2:ifile2use
+    plot((nwin_cum_vect(ifile)+.5)*ones(1,2),ylim_vect,'Color',0.2*ones(1,3),'LineWidth',.5);
+    hold on;
+end
+
+sa=axes('Position',[0.1061    0.9350    0.8550    0.05]);
+for ifile=1:ifile2use
+    plot((nwin_cum_vect(ifile)+.5)*ones(1,2),[0 1],'Color',color_vect_eachfile(ifile,:));
+    hold on;
+    text(nwin_cum_vect(ifile+1)-.5*nwin_vect(ifile),0.5,strrep(filenames2use{ifile},'.mat',''),'Color',color_vect_eachfile(ifile,:),'Interpreter','none','HorizontalAlignment','center','VerticalAlignment','middle','Rotation',0,'FontSize',13);
+end
+xlim(0.5+[0 i_train]);
+ylim([0 1]);
+axis off;
+pos_this=[0.1061    0.1022    0.8550    0.8328];
+if PLOT.print
+    figure_name=fullfile(figDir,'sync_all_zs_measabsspearmancorrsorted_color_longn_vlines_clipped');
+    export_fig(gcf,[figure_name par.png_tail '_' names_string '.png'],'-nocrop');
+end
+
+
+
 
 figure;
 set(gcf,'Color',[1 1 1]);
@@ -450,7 +497,6 @@ end
 
 
 
-clip_v=-min(min(sync_all_zs_sorted));
 
 figure;
 set(gcf,'Color',[1 1 1]);
@@ -1069,6 +1115,38 @@ set(sa,'XLim',0.5+[0 i_train]);
 axis off;
 if PLOT.print
     figure_name=fullfile(figDir,'sync_all_zs_absspearmancorr_sorted_color_longn_lines');
+    export_fig(gcf,[figure_name par.png_tail '_' names_string '.png'],'-nocrop');
+end
+
+
+figure;
+set(gcf,'Color',[1 1 1]);
+set(gcf,'Position',[4           7        1917         769]);
+imagesc(min(sync_all_zs_sorted2,clip_v),'AlphaData',imAlpha);
+set(gca,'color',0.8*[1 1 1]);
+set(gca,'Position',[0.1051    0.1022    0.8560    0.8328]);
+xlabel('time windows (ordered according to clustering results)');
+set(gca,'YTick',1:1:length(field_names));
+set(gca,'YTickLabel',{'','','','','','','','',''});
+for imeas=1:length(field_names)
+    text(-2,imeas,field_names_long_ms{output_this.outperm_absspearmancorr_avg(imeas)},'Interpreter','none','HorizontalAlignment','right','VerticalAlignment','middle','Rotation',0,'FontSize',FontSizeThis,'Color',field_colors{output_this.outperm_absspearmancorr_avg(imeas)}); % we might add color later, to indicate monovariate, bivariate, multivariate
+end
+xlim(0.5+[0 i_train]);
+set(gca,'Position',[0.1061    0.1022    0.8550    0.8328]);
+set(gca,'CLim',clim_this); % it's exactly the same data, just with reordered columns, but just in case
+
+pos_vect=get(gca,'Position');
+pos_tight=tightPosition(gca);
+sa=axes('Position',[pos_tight(1)    pos_tight(2)+pos_vect(4)+0.005    pos_tight(3)    0.05]);
+for iSYNC=1:NSYNC(1)
+    iSYNC_perm=outperm(iSYNC);
+    plot(iSYNC*ones(1,2),[0 win_rank(iSYNC_perm)],'Color',color_vect_all(iSYNC_perm,:));
+    hold on;
+end
+set(sa,'XLim',0.5+[0 i_train]);
+axis off;
+if PLOT.print
+    figure_name=fullfile(figDir,'sync_all_zs_absspearmancorr_sorted_color_longn_lines_clipped');
     export_fig(gcf,[figure_name par.png_tail '_' names_string '.png'],'-nocrop');
 end
 
