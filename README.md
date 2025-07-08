@@ -43,6 +43,7 @@ The scripts `script_all_train_range_ss.m` and `script_all_train_range_ds.m` load
 ## Organizing the MSTM library using inter-MSTM correlations and clustering
 The script `script_all_train_range.m` loads synthetic spike train measures from both the single-scale and the dual-scale formalisms, and calculates inter-MSTM correlations and the resulting dendrogram, as in Fig 4, using the function `multi_all_train_range_anal_bs_cluster_bal.m`.
 <img src="https://github.com/user-attachments/assets/ea1ba951-3c09-4194-8a0d-29cfbada3375" width=70%>
+![sync_all_absspearmancorr_thr_scaled_mat_par_color_longn_cb_bs_050723](https://github.com/user-attachments/assets/f528794d-b1ca-437f-a2b0-57b4428ae1a1)
 
 
 # Real Spike Train Analysis
