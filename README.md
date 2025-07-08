@@ -38,13 +38,13 @@ These are called from the scripts `script_*_train_range.m` mentioned above, in t
 ## Correlation of each MSTM with each generative parameter
 The scripts `script_all_train_range_ss.m` and `script_all_train_range_ds.m` load (single-scale and dual-scale, respectively) synthetic spike train measures and calculate the correlation of each MSTM with each generative parameter, generating panels such as those shown in Fig 3 using the function `multi_all_train_range_anal_corr_bal.m`.
 ![sync_all_absspearmancorr_thr_scaled_mat_par_color_longn_bs_050723](https://github.com/user-attachments/assets/80f4f280-4d5b-413f-afdf-e3ad8065b0f0)
+![sync_all_absspearmancorr_thr_scaled_mat_par_color_longn_cb_bs_050723](https://github.com/user-attachments/assets/f528794d-b1ca-437f-a2b0-57b4428ae1a1)
 
 
 ## Organizing the MSTM library using inter-MSTM correlations and clustering
 The script `script_all_train_range.m` loads synthetic spike train measures from both the single-scale and the dual-scale formalisms, and calculates inter-MSTM correlations and the resulting dendrogram, as in Fig 4, using the function `multi_all_train_range_anal_bs_cluster_bal.m`.
 <img src="https://github.com/user-attachments/assets/ea1ba951-3c09-4194-8a0d-29cfbada3375" width=70%>
-![sync_all_absspearmancorr_thr_scaled_mat_par_color_longn_cb_bs_050723](https://github.com/user-attachments/assets/f528794d-b1ca-437f-a2b0-57b4428ae1a1)
-
+![fig_cluster](https://github.com/user-attachments/assets/0bfa7cce-8d60-4941-9b76-d420f735172e)
 
 # Real Spike Train Analysis
 ## Applying the library of Multineuron Spike Train Measures (MSTMs)
@@ -63,6 +63,7 @@ which recapitulate the corresponding functions used for the synthetic spike trai
 ## Organizing data segments using clustering
 A visualization of each dataset through the lens of the MSTM library, as in Fig 7, can be obtained by using `multi_train_anal_win_cluster.m`.
 ![fig_see](https://github.com/user-attachments/assets/7954b88c-d3d5-4f86-b028-229f9e0e9394)
+![fig_see](https://github.com/user-attachments/assets/d870d534-58c9-476e-af77-19621833eae5)
 
 
 # Augmenting the MSTM library with new measures
