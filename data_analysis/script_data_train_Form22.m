@@ -70,7 +70,7 @@ for png_tail=png_tails
     i_tail=i_tail+1;
     par.png_tail=png_tail{1};
     par.seed_silh=seed_vect(i_tail);
-    output_struct=multi_train_anal_win_cluster(recleannotsilentdataDir,filenames,stringa,par); % better run with xvfb-run - needs a big screen
+    output_struct=multi_train_anal_win_cluster_cb(recleannotsilentdataDir,filenames,stringa,par); % better run with xvfb-run - needs a big screen
     output_struct=multi_train_anal_win_silhouette(recleannotsilentdataDir,filenames,stringa,par); % depending on par.nperm this can take a long time
     output_struct=multi_train_plot_win_silhouette(recleannotsilentdataDir,filenames,stringa,par);
     output_struct=multi_train_anal_compute_id(recleannotsilentdataDir,filenames,stringa,par);
@@ -149,7 +149,7 @@ for ifile=1:nfiles
             par.Job.iDecodeTypeMulti=iDecodeTypeMulti;
             for png_tail=png_tails
                 par.png_tail=png_tail{1};
-                plot_decodeEachFile(recleannotsilentdataDir,filenames{ifile},stringa,par); % fig_decoding_pair_M1R1
+                plot_decodeEachFile_cb(recleannotsilentdataDir,filenames{ifile},stringa,par); % fig_decoding_pair_M1R1
             end
         end
     end
@@ -162,7 +162,7 @@ for iDecodeMode = par.Job.vDecodeMode
         for png_tail=png_tails
         % for png_tail=png_tails(2)
             par.png_tail=png_tail{1};
-            plot_decode_all(recleannotsilentdataDir,filenames,stringa,par); % fig_decoding_pair_median
+            plot_decode_all_cb(recleannotsilentdataDir,filenames,stringa,par); % fig_decoding_pair_median
         end
     end
 end
@@ -175,7 +175,7 @@ for iDecodeMode = par.Job.vDecodeMode
         for png_tail=png_tails
         % for png_tail=png_tails(2)
             par.png_tail=png_tail{1};
-            plot_decode_LORO(recleannotsilentdataDir,filenames,stringa,par);
+            plot_decode_LORO_cb(recleannotsilentdataDir,filenames,stringa,par);
         end
     end
 end

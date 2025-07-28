@@ -4,7 +4,7 @@ All code written by F. Baroni unless indicated otherwise, apart from what's incl
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-REQUIREMENTS
+REQUIREMENTS AND INSTALLATION INSTRUCTIONS
 
 Most of the scripts and functions only require a basic Matlab installation.
 
@@ -110,22 +110,29 @@ Generates Fig 1 panels.
 
 
 multi_train_range_anal_all.m
+multi_train_range_anal_all_cb.m
 multi_train_range_anal_all_title.m
-generate plots showing each MSTM against each generative parameter. Generates Fig 2 and Fig S1 panels.
+multi_train_range_anal_all_cb_title.m
+generate plots showing each MSTM against each generative parameter. Generate Fig 2 and Fig S1 panels.
 
 multi_all_train_range_anal_corr_bal.m
+multi_all_train_range_anal_corr_bal_cb.m
 calculates the correlation between each MSTM and each synth spike train generative parameter. Generates Fig 3 panels.
 
 multi_all_train_range_anal_bs_cluster_bal.m
+multi_all_train_range_anal_bs_cluster_bal_cb.m
 calculates the correlation between each MSTM pair and generates corresponding distance matrices and dendrograms. Generates Fig 4 panels.
 Uses tightPosition, hence it requires a modern version of Matlab (R2022b or newer).
 
 multi_all_train_range_anal_ms_cluster_bal.m
+multi_all_train_range_anal_ms_cluster_bal_cb.m
 as multi_all_train_range_anal_bs_cluster_bal.m , but considering the extended set of MSTMs (ms, multiple scales). Generates Fig S2 panels.
 
 
 multi_all_train_range_anal_ms_cluster_bal.m
+multi_all_train_range_anal_ms_cluster_bal_cb.m
 multi_all_train_range_anal_bs_cluster_bal.m
+multi_all_train_range_anal_bs_cluster_bal_cb.m
 These are also used to estimate inter-MSTM distance matrices for each synth spike train family separately (single-scale, dual-scale).
 
 multi_all_train_range_anal_ms_pca_bal.m
@@ -137,22 +144,27 @@ estimate ID for each synth spike train family. Requires Python>= 3.7 with DADApy
 
 
 multi_all_train_range_data_anal_pca_bal_compare.m
-loads PCA estimates for each synth spike train family and bio dataset. Generates Fig 12A panels.
+loads PCA estimates for each synth spike train family and bio dataset. Generates Fig 11A panels.
 
 multi_all_train_range_data_anal_plot_id.m
-loads ID estimates for each synth spike train family and bio dataset. Generates Fig 12B panels.
+loads ID estimates for each synth spike train family and bio dataset. Generates Fig 11B panels.
 
 multi_all_train_range_data_anal_cluster_bal_compare.m
-loads and compares inter-MSTM distance matrices for each synth spike train family and bio dataset. Generates Fig S11 panels.
+loads and compares inter-MSTM distance matrices for each synth spike train family and bio dataset. Generates Fig S12 panels.
  
 
 plot_train_all_win.m
+plot_train_all_win_cb.m
 plot_train_all_win_si.m
+plot_train_all_win_si_cb.m
 calculate the mean and STD for each MSTM and each time window length (number of neurons) resulting from *_win_*.m (*_nneu_*) simulations. Generate Fig 5 and Fig S3 panels.
 
 
 script_all_train_prova_{win,nneu}_range.m
-loads and analyzes *_win_* (*_nneu_*) simulation outputs in terms of bias and precision, calling analyze_train_ms_all_win_mean.m. Generates Fig 6 and Fig S4 and S5 panels.
+loads and analyzes *_win_* (*_nneu_*) simulation outputs in terms of bias and precision, calling analyze_train_ms_all_win_mean_cb.m. Generates Figs S4 S5 and S6 panels.
+
+*cb*.m
+these use colorbrewer2 colors - https://colorbrewer2.org
 
 script_test.m
 script_MPC_test.m
@@ -190,14 +202,15 @@ analyzes spike trains (Synfire Indicator). Corresponds to analyze_sinosc_train_s
 
 
 multi_train_anal_win_cluster.m
-calculates the correlation between each pair of time windows and generates corresponding distance matrices and dendrograms. Generates Fig 7, S6 and Fig 8A-C and S7A-C panels.
+multi_train_anal_win_cluster_cb.m
+calculates the correlation between each pair of time windows and generates corresponding distance matrices and dendrograms. Generates Fig 6, S7 and Fig 7A-C and S8A-C panels.
 Uses tightPosition, hence it requires a modern version of Matlab (R2022b or newer).
 
 multi_train_anal_win_silhouette.m
 performs Silhouette score analysis.
 
 multi_train_plot_win_silhouette.m
-loads and plots the results of the Silhouette score analysis. Generates Fig 8D and S7D panel.
+loads and plots the results of the Silhouette score analysis. Generates Fig 7D and S8D panel.
 
 multi_train_anal_compute_id.m
 estimate ID for bio spike train datasets. Requires Python>= 3.7 with DADApy installed. Setting py.sys.path manually might be necessary.
@@ -206,7 +219,7 @@ analyze_sleep_scoring_Form22.m
 analyzes sleep scoring data and yields aggregate scores corresponding to the temporal resolution of the spike train data (30s in the original paper).
 
 multi_train_anal_win_violin.m
-generates violin plots for each recording and condition. Generates Fig 9D panels.
+generates violin plots for each recording and condition. Generates Fig 8D panels.
 
 
 decodeEachFile.m
@@ -226,13 +239,16 @@ as decodeAll_perm.m , but pair decoding is performed for only one MSTM in the ou
 
 
 plot_decodeEachFile.m
-loads and plots within-recording decoding results obtained with decodeEachFile.m , independently for each recording. Generates Fig 9A, Fig S8, Fig 10, and Fig S9 panels.
+plot_decodeEachFile_cb.m
+loads and plots within-recording decoding results obtained with decodeEachFile.m , independently for each recording. Generates Fig 8A, Fig S9, Fig 9, and Fig S10 panels.
 
 plot_decode_all.m
-loads and plots within-recording decoding results obtained with decodeEachFile.m , combining across recordings (through median values, cumulative pdfs, etc.). Generates Fig 9B, Fig 11, and Fig S10 panels.
+plot_decode_all_cb.m
+loads and plots within-recording decoding results obtained with decodeEachFile.m , combining across recordings (through median values, cumulative pdfs, etc.). Generates Fig 8B, Fig 10, and Fig S11 panels.
 
 plot_decode_LORO.m
-loads and plots leave-one-recording-out (LORO) decoding results obtained with decodeAll.m . Generates Fig 9C panels.
+plot_decode_LORO_cb.m
+loads and plots leave-one-recording-out (LORO) decoding results obtained with decodeAll.m . Generates Fig 8C panels.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -244,8 +260,8 @@ When contributing a novel MSTM that yields a well-defined value in certain refer
 To include additional MSTMs, you can write a new "Synth Train Analysis" function following the template provided in the functions indicated above (analyze_sinosc_train_ms.m, analyze_sinosc_train_fooof.m or analyze_sinosc_train_synfireind.m).
 
 Then, you can add a new case in
-get_field_names.m (for the extended set of MSTM, including multiple timescales for the timescale-dependent measures) and
-get_field_names_bs.m (for the core set of MSTM, including a single timescale---the "best scale"---for the timescale-dependent measures)
+get_field_names_cb.m (for the extended set of MSTM, including multiple timescales for the timescale-dependent measures) and
+get_field_names_cb_bs.m (for the core set of MSTM, including a single timescale---the "best scale"---for the timescale-dependent measures)
 specifying your new MSTM set. A MSTM set is identified by the field names_string of the structure par.
 
 Then, the new selection of measures will be included in subsequent processing (such as clustering analysis, or correlation with generative parameters, etc.).

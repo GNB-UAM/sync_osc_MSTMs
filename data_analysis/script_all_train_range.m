@@ -44,12 +44,12 @@ par.f{2}.ranged4_vect_plot=[1 2]; % (duty_cycle=0.4 , 0.2)
 par.f{4}.ranged3_vect_plot=[1 2]; % (duty_cycle=0.4 , 0.2)
 
 
-output_struct=multi_all_train_range_anal_ms_cluster_bal(stringa_dir,par); % better run with xvfb-run - needs a big screen
+output_struct=multi_all_train_range_anal_ms_cluster_bal_cb(stringa_dir,par); % better run with xvfb-run - needs a big screen
 
 output_struct=multi_all_train_range_anal_ms_pca_bal(stringa_dir,par);
 
 
-output_struct=multi_all_train_range_anal_bs_cluster_bal(stringa_dir,par); % better run with xvfb-run - needs a big screen
+output_struct=multi_all_train_range_anal_bs_cluster_bal_cb(stringa_dir,par); % better run with xvfb-run - needs a big screen
 
 output_struct=multi_all_train_range_anal_bs_pca_bal(stringa_dir,par);
 

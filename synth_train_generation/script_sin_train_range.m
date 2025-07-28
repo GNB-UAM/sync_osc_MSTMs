@@ -53,5 +53,5 @@ ranged_stringa_tex={'r_0','f_0','m'}; % i,j,k
 output_struct=multi_train_range_runall(stringa_dir,stringa_mfile_osc,stringa_mfile_ple,par,ranged_par); % use this to run all jobs locally
 % output_struct=multi_train_range_qsub(stringa_dir,stringa_mfile_osc,stringa_mfile_ple,par,ranged_par); % use this to distribute jobs in a Slurm queue - this requires licensing for several toolboxes
 
-output_struct=multi_train_range_anal_all(stringa_dir,par,ranged_par,ranged_stringa,ranged_stringa_tex); % this generates Fig 2 panels
-output_struct=multi_train_range_anal_all_title(stringa_dir,par,ranged_par,ranged_stringa,ranged_stringa_tex); % this generates Fig S1 panels
+output_struct=multi_train_range_anal_all_cb(stringa_dir,par,ranged_par,ranged_stringa,ranged_stringa_tex); % this generates Fig 2 panels
+output_struct=multi_train_range_anal_all_cb_title(stringa_dir,par,ranged_par,ranged_stringa,ranged_stringa_tex); % this generates Fig S1 panels

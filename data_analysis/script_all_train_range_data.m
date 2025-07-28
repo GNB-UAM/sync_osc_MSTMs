@@ -59,7 +59,7 @@ png_tails={'','_bs'}; % extended set of measures (multiple time scales, or "ms")
 for png_tail=png_tails
 % for png_tail=png_tails(2)
     par.png_tail=png_tail{1};
-    output_struct=multi_all_train_range_data_anal_cluster_bal_compare(stringa_dir,par); % Generates Fig S11 panels.
-    output_struct=multi_all_train_range_data_anal_pca_bal_compare(stringa_dir,par); % Generates Fig 12A panels.
-    output_struct=multi_all_train_range_data_anal_plot_id(stringa_dir,par); % Generates Fig 12B panels.
+    output_struct=multi_all_train_range_data_anal_cluster_bal_compare(stringa_dir,par); % Generates Fig S12 panels.
+    output_struct=multi_all_train_range_data_anal_pca_bal_compare(stringa_dir,par); % Generates Fig 11A panels.
+    output_struct=multi_all_train_range_data_anal_plot_id(stringa_dir,par); % Generates Fig 11B panels.
 end

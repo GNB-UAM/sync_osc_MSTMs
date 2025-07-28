@@ -57,6 +57,6 @@ png_tails={'','_bs'}; % extended set of measures (multiple time scales, or "ms")
 % for png_tail=png_tails
 for png_tail=png_tails(2)
     par.png_tail=png_tail{1};
-    output_struct=analyze_train_ms_all_win_mean(stringa_dir,par)
+    output_struct=analyze_train_ms_all_win_mean_cb(stringa_dir,par)
 end
 return;

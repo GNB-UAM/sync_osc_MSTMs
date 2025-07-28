@@ -51,6 +51,6 @@ png_tails={'','_bs'}; % extended set of measures (multiple time scales, or "ms")
 for png_tail=png_tails
 % for png_tail=png_tails(2)
     par.png_tail=png_tail{1};
-    eval(['output_struct' par.png_tail '=multi_all_train_range_anal_corr_bal(stringa_dir,par,''_ss'',3);']);
+    eval(['output_struct' par.png_tail '=multi_all_train_range_anal_corr_bal_cb(stringa_dir,par,''_ss'',3);']);
     output_struct=multi_all_train_range_anal_compute_id(stringa_dir,par,'_ss');
 end

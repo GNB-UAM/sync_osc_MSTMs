@@ -39,5 +39,5 @@ ranged_stringa={'sigmaGpercent','n_neu','seed_ind'}; % i,j,k
 % #SBATCH --mem-per-cpu=16G % 32G for L4
 output_struct=multi_train_range_qsub(stringa_dir,stringa_mfile_osc,stringa_mfile_ple,par,ranged_par); % use this to distribute jobs in a Slurm queue - this requires licensing for several toolboxes
 
-output_struct=plot_train_all_win(stringa_dir,par,ranged_par,ranged_stringa,'# neurons'); % this generates Fig 5 panels
-output_struct=plot_train_all_win_si(stringa_dir,par,ranged_par,ranged_stringa,'# neurons'); % this generates Fig S3 panels
+output_struct=plot_train_all_win_cb(stringa_dir,par,ranged_par,ranged_stringa,'# neurons'); % this generates Fig 5 panels
+output_struct=plot_train_all_win_si_cb(stringa_dir,par,ranged_par,ranged_stringa,'# neurons'); % this generates Fig S3 panels
