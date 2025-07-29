@@ -81,7 +81,7 @@ This project welcomes and encourages contributions from the community, and [pull
 
 When contributing a novel MSTM that yields a well-defined value in certain reference cases (such as perfectly correlated or anticorrelated trains, or completely random trains), authors are encouraged to provide the corresponding unit tests. Please [script_test.m](https://github.com/fabaroni/sync_osc_MSTMs/tree/main/data_analysis/script_test.m) for an example of a unit test illustrating this for a specific measure.
 
-Pull requests that edit an existing measurement are discouraged. Bug reports on an existing measurement are encouraged. Modifications or alternative implementations of an existing measure are only considered if they yield a substantially different output in non-trivial cases (with empty spike trains or perfectly synchronized spike trains being considered as trivial cases), or a substantial improvement in computational time, and should be included under a different name.
+Pull requests that edit an existing measure are discouraged. Bug reports on an existing measure are encouraged. Modifications or alternative implementations of an existing measure are only considered as pull requests if they yield a substantially different output in non-trivial cases (with empty spike trains or perfectly synchronized spike trains being considered as trivial cases), or a substantial improvement in computational time, and should be included under a different name. All other modifications are encouraged as independent forks.
 
 To file bug reports and/or ask questions about this project, please use the [Github issue tracker](https://github.com/fabaroni/sync_osc_MSTMs/issues).
 
