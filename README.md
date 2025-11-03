@@ -90,7 +90,7 @@ To file bug reports and/or ask questions about this project, please use the [Git
 We include some code developed by others. Please see content of the directory `third-party`.
 
 # Fundings
-This project was supported by grants PID2021-122347NB-I00 (PI: Pablo Varona Martinez) and PID2020-114867RB-I00 (PI: Francisco de Borja Rodríguez Ortiz) (MCIN/AEI and ERDF- "A way of making Europe").
+This project was supported by grants PID2024-155923NB-I00 and PID2021-122347NB-I00 (PI: Pablo Varona Martinez), PID2023-149669NBI00 and PID2020-114867RB-I00 (PI: Francisco de Borja Rodríguez Ortiz) (MCIN/AEI and ERDF- "A way of making Europe"). BDF acknowledges support from the Australian Research Council (FT240100418).
 
 <img src="https://github.com/user-attachments/assets/9107610a-475f-42b9-b04d-3c803312ae74" width=50%>
 
