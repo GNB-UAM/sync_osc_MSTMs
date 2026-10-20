@@ -181,7 +181,7 @@ If you use this code in your project, please cite:
 
 ## Contributing
 
-This project welcomes and encourages contributions from the community, and [pull requests](https://github.com/DynamicsAndNeuralSystems/sync_osc_MSTMs/pulls) are appreciated.
+This project welcomes and encourages contributions from the community, and [pull requests](https://github.com/GNB-UAM/sync_osc_MSTMs/pulls) are appreciated.
 
 When contributing a novel MSTM that yields a well-defined value in certain reference cases (such as perfectly correlated or anticorrelated trains, or completely random trains), authors are encouraged to provide the corresponding unit tests.
 Please see [`script_MPC_test.m`](data_analysis/script_MPC_test.m) (run through [`script_test.m`](data_analysis/script_test.m)) for an example of a unit test illustrating this for a specific measure.
@@ -191,7 +191,7 @@ Bug reports on an existing measure are encouraged.
 Modifications or alternative implementations of an existing measure are only considered as pull requests if they yield a substantially different output in non-trivial cases (with empty spike trains or perfectly synchronized spike trains being considered as trivial cases), or a substantial improvement in computational time, and should be included under a different name.
 All other modifications are encouraged as independent forks.
 
-To file bug reports and/or ask questions about this project, please use the [GitHub issue tracker](https://github.com/DynamicsAndNeuralSystems/sync_osc_MSTMs/issues).
+To file bug reports and/or ask questions about this project, please use the [GitHub issue tracker](https://github.com/GNB-UAM/sync_osc_MSTMs/issues).
 
 ## Acknowledgements
 
