@@ -32,7 +32,7 @@ for i=1:n_neu
     end
 end
 
-schreiber_c=nanmean(nanmean(schreiber_mat));
-kruskal_c=nanmean(nanmean(kruskal_mat));
+schreiber_c=mean(schreiber_mat(:),'omitnan');
+kruskal_c=mean(kruskal_mat(:),'omitnan');
 % schreiber_cE=nanmean(nanmean(schreiber_mat(1:n_exc,1:n_exc)));
 % schreiber_cI=nanmean(nanmean(schreiber_mat(n_exc+1:end,n_exc+1:end)));

@@ -21,4 +21,4 @@ for i_neu=1:n_neu
     end
 end
 
-corr_ind=nanmean(nanmean(corr_ind_mat));
+corr_ind=mean(corr_ind_mat(:),'omitnan');

@@ -33,8 +33,8 @@ for i=1:n_neu
     end
 end
 
-VP=nanmean(nanmean(abs(VP_mat)));
+VP=mean(abs(VP_mat(:)),'omitnan');
 % VPE=nanmean(nanmean(abs(VP_mat(1:n_exc,1:n_exc))));
 % VPI=nanmean(nanmean(abs(VP_mat(n_exc+1:end,n_exc+1:end))));
 
-VPN=nanmean(nanmean(abs(VPN_mat)));
+VPN=mean(abs(VPN_mat(:)),'omitnan');

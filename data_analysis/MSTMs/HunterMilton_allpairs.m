@@ -19,6 +19,6 @@ for i=1:n_neu
     end
 end
 
-HM=nanmean(nanmean(hm_mat));
+HM=mean(hm_mat(:),'omitnan');
 % HME=nanmean(nanmean(hm_mat(1:n_exc,1:n_exc)));
 % HMI=nanmean(nanmean(hm_mat(n_exc+1:end,n_exc+1:end)));

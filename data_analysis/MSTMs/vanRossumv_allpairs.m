@@ -15,8 +15,8 @@ for i=1:n_neu
     end
 end
 
-vR=nanmean(nanmean(vR_mat));
+vR=mean(vR_mat(:),'omitnan');
 % vRE=nanmean(nanmean(vR_mat(1:n_exc,1:n_exc)));
 % vRI=nanmean(nanmean(vR_mat(n_exc+1:end,n_exc+1:end)));
 
-vRn=nanmean(nanmean(vRn_mat));
+vRn=mean(vRn_mat(:),'omitnan');

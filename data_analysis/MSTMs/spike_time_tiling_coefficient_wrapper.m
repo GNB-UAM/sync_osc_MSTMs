@@ -18,7 +18,7 @@ for i_neu=1:n_neu
     end
 end
 
-sttc=nanmean(nanmean(sttc_mat));
+sttc=mean(sttc_mat(:),'omitnan');
 
 % mean_spikeks=mean(spikeks); % mean over neurons
 %

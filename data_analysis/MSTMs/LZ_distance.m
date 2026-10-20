@@ -62,5 +62,5 @@ for i_neu=1:n_neu
     end
 end
 
-LZdist=nanmean(nanmean(LZcondc));
+LZdist=mean(LZcondc(:),'omitnan');
 
