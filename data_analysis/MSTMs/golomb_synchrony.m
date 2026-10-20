@@ -1,6 +1,7 @@
 function [golomb_sync]=golomb_synchrony(spiketimes,sim_time,sigma,inct)
 % returns golomb_synchrony
 % http://www.scholarpedia.org/article/Neuronal_synchrony_measures
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time, kernel bandwidth sigma and grid step inct in ms
 t_vect=0:inct:sim_time;
 n_neu=length(spiketimes);
 spikeks=zeros(n_neu,length(t_vect)); % spike density

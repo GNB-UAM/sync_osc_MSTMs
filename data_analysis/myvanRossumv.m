@@ -1,6 +1,7 @@
 % Calculates bivariate van Rossum-Distance based on eq5 in  Houghton C & Kreuz T 2012
 
 function [D,Dn] = myvanRossumv(x_spikes,y_spikes,tc)
+% x_spikes, y_spikes: spike times in ms; tc: time constant in ms
 
 D =0;
 x_num_spikes = length(x_spikes);

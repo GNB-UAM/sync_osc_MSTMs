@@ -1,5 +1,6 @@
 function corr_ind = modulus_metric_wrapper(spiketimes,sim_time)
 % returns the modulus metric measure of synchrony as implemented in Rusu, C. V., & Florian, R. V. (2014). A new class of metrics for spike trains. Neural Computation, 26(2), 306–348. doi:10.1162/NECO_a_00545
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time in ms
 
 n_neu=length(spiketimes);
 

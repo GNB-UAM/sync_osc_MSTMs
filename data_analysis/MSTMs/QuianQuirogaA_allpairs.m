@@ -1,5 +1,6 @@
 function [QQ,qq]=QuianQuirogaA_allpairs(spiketimes,n_exc)
 % function [QQ,QQE,QQI,QQ_mat]=QuianQuiroga_allpairs(spiketimes,n_exc,tau)
+% spiketimes(k).t: column vector of spike times of neuron k (in ms, as elsewhere in this package; this measure does not depend on the time unit)
 
 n_neu=length(spiketimes);
 

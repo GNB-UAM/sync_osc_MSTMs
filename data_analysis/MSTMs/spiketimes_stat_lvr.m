@@ -1,5 +1,6 @@
 function [LvR_ISI_vect,LvR_ISI]=spiketimes_stat_lvr(spiketimes,t_refr)
 % returns ISI LvR of each neuron, and mean LvR across neurons. LvR pulling all ISIs together is meaningless since these measures capture serial correlations
+% spike times and the refractoriness constant t_refr in ms
 n_neu=length(spiketimes);
 LvR_ISI_vect=zeros(1,n_neu);
 for neu=1:n_neu

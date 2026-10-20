@@ -1,5 +1,6 @@
 function [vR,vRn]=vanRossumv_allpairs(spiketimes,n_exc,vR_tau)
 % function [vR,vRE,vRI,vR_mat]=vanRossumv_allpairs(spiketimes,n_exc,vR_tau)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; vR_tau in ms
 
 n_neu=length(spiketimes);
 

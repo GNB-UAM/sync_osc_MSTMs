@@ -1,5 +1,6 @@
 function corr_ind = correlation_index_wrapper(spiketimes,sim_time,inct)
 % returns the corr ind measure of synchrony as implemented in Cutts 14
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time and the synchrony window inct in ms
 
 n_neu=length(spiketimes);
 

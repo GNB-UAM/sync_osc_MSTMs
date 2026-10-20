@@ -1,4 +1,5 @@
 function [emd,emdn]=Wasserstein_allpairs(spiketimes,n_exc,sim_time)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time in ms (emd is in ms)
 
 n_neu=length(spiketimes);
 

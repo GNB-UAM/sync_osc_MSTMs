@@ -1,5 +1,6 @@
 function [HM]=HunterMilton_allpairs(spiketimes,n_exc,tau)
 % function [HM,HME,HMI,hm_mat]=HunterMilton_allpairs(spiketimes,n_exc,tau)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; tau in ms
 
 n_neu=length(spiketimes);
 

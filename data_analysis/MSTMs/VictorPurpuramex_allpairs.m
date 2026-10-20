@@ -1,5 +1,6 @@
 function [VP,VPN]=VictorPurpuramex_allpairs(spiketimes,n_exc,VPq)
 % function [MPC,MPCE,MPCI,phase_coherence_mat]=VictorPurpuramex_allpairs(spiketimes,n_exc,VPq)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; VPq is the cost per ms of shifting a spike (1/tau, with tau in ms)
 
 n_neu=length(spiketimes);
 

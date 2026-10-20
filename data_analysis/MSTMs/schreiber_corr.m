@@ -1,5 +1,6 @@
 function [schreiber_c kruskal_c]=schreiber_corr(spiketimes,sim_time,sigma,inct)
 % returns the reliability metrics from Schreiber et al 2002 Neurocomputing and Kruskal 2007 Statistics in Medicine
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time, kernel bandwidth sigma and grid step inct in ms
 t_vect=0:inct:sim_time;
 n_neu=length(spiketimes);
 spikeks=zeros(n_neu,length(t_vect)); % spike density

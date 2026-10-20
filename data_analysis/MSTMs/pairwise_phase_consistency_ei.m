@@ -1,4 +1,5 @@
 function [MPC,MPCE,MPCI,phase_coherence_mat]=pairwise_phase_consistency_ei(spiketimes,n_exc)
+% spiketimes(k).t: column vector of spike times of neuron k (in ms, as elsewhere in this package; this measure does not depend on the time unit)
 
 n_neu=length(spiketimes);
 
