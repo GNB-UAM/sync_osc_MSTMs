@@ -1,4 +1,4 @@
-Code used for the article "Synchrony, oscillations, and phase relationships in collective neuronal activity: a highly-comparative overview of methods" by F. Baroni and B.D. Fulcher (2024).
+Code used for the article "Synchrony, oscillations, and phase relationships in collective neuronal activity: a highly-comparative overview of methods" by F. Baroni and B.D. Fulcher (2025).
 
 All code written by F. Baroni unless indicated otherwise, apart from what's included in ./third-party/.
 
@@ -30,22 +30,22 @@ MAIN SCRIPTS AND FUNCTIONS
 Top-level script
 
 script_all.m
-includes all scripts required for the generation of synthetic data and for the analysis of synthetic and real spike trains, yielding all the results reported in Baroni & Fulcher 2024 in the same order as presented in the article.
+includes all scripts required for the generation of synthetic data and for the analysis of synthetic and real spike trains, yielding all the results reported in Baroni & Fulcher 2025 in the same order as presented in the article.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Synth Train Generation
 
-script_sin_train_prova_range.m
+script_sin_train_range.m
 generates and analyzes non-sequential single-scale trains, varying rate_vect f_osc_vect r_osc_ampl_vect
 
-script_sinseq_train_prova_range.m
+script_sinseq_train_range.m
 generates and analyzes sequential single-scale trains, varying rate_vect f_osc_vect r_osc_ampl_vect
 
-script_G_train_prova_range.m
+script_G_train_range.m
 generates and analyzes non-sequential dual-scale trains, varying f_osc_vect sigmaGpercent_vect p_fail_vect
 
-script_Gseq_train_prova_range.m
+script_Gseq_train_range.m
 generates and analyzes sequential dual-scale trains, varying f_osc_vect sigmaGpercent_vect p_fail_vect
 
 
@@ -77,16 +77,16 @@ generates sequential non-rhythmic dual-scale trains
 
 
 
-script_sin_train_prova_win_range.m
-script_sinseq_train_prova_win_range.m
-script_G_train_prova_win_range.m
-script_Gseq_train_prova_win_range.m
+script_sin_train_win_range.m
+script_sinseq_train_win_range.m
+script_G_train_win_range.m
+script_Gseq_train_win_range.m
 generate synthetic spike trains varying oscillation strength (r_osc_ampl or sigmaGpercent), window length and RNG seed, for each of the 4 synthetic spike train families
 
-script_sin_train_prova_nneu_range.m
-script_sinseq_train_prova_nneu_range.m
-script_G_train_prova_nneu_range.m
-script_Gseq_train_prova_nneu_range.m
+script_sin_train_nneu_range.m
+script_sinseq_train_nneu_range.m
+script_G_train_nneu_range.m
+script_Gseq_train_nneu_range.m
 as the corresponding *_win_* scripts, but these vary the number of neurons instead of the window length
 
 
@@ -160,7 +160,7 @@ plot_train_all_win_si_cb.m
 calculate the mean and STD for each MSTM and each time window length (number of neurons) resulting from *_win_*.m (*_nneu_*) simulations. Generate Fig 5 and Fig S3 panels.
 
 
-script_all_train_prova_{win,nneu}_range.m
+script_all_train_{win,nneu}_range.m
 loads and analyzes *_win_* (*_nneu_*) simulation outputs in terms of bias and precision, calling analyze_train_ms_all_win_mean_cb.m. Generates Figs S4 S5 and S6 panels.
 
 *cb*.m
@@ -255,7 +255,7 @@ loads and plots leave-one-recording-out (LORO) decoding results obtained with de
 
 HOW TO INCLUDE ADDITIONAL MSTMs
 
-When contributing a novel MSTM that yields a well-defined value in certain reference cases (such as perfectly correlated or anticorrelated trains, or completely random trains), authors are encouraged to provide the corresponding unit tests. Please {\red see} \href{}{} for an example of a unit test illustrating this for a specific measure.
+When contributing a novel MSTM that yields a well-defined value in certain reference cases (such as perfectly correlated or anticorrelated trains, or completely random trains), authors are encouraged to provide the corresponding unit tests. Please see data_analysis/script_test.m and data_analysis/script_MPC_test.m for an example of a unit test illustrating this for a specific measure.
 
 To include additional MSTMs, you can write a new "Synth Train Analysis" function following the template provided in the functions indicated above (analyze_sinosc_train_ms.m, analyze_sinosc_train_fooof.m or analyze_sinosc_train_synfireind.m).
 
