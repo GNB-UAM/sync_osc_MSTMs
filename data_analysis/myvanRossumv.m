@@ -30,17 +30,20 @@ if tc ~=Inf
         D3=D3+sum(exp(-d_this));
     end
 
+    % van Rossum 2001: D^2=(1/tc)*integral((f-g)^2) with causal exponential kernels of time constant tc,
+    % whose closed form is (D1+D2-2*D3)/2. Adding or removing one isolated spike increases D^2 by 1/2
     D=D1+D2-2*D3;
 
-    D=sqrt(D);
+    D=sqrt(max(D,0)/2); % max guards against tiny negative values from roundoff
 
 else                                                                   % tc = Inf --- pure rate code
 
     % D = x_num_spikes * (x_num_spikes - y_num_spikes) + y_num_spikes * (y_num_spikes-x_num_spikes);
-    D = abs(x_num_spikes - y_num_spikes);
+    D = abs(x_num_spikes - y_num_spikes)/sqrt(2); % limit of the expression above for tc -> Inf
 
 end
 
-D=D./sqrt(tc); % original normalization as in van Rossum 2001. With this normalization, adding or removing one spike increases the distance by 1/sqrt(2)
+% D is normalized as in van Rossum 2001: one spike against an empty train gives D=1/sqrt(2) for any tc.
+% (An earlier version divided D by sqrt(tc) here, which scaled it by sqrt(2/tc) relative to van Rossum 2001)
 
-Dn=sqrt(2).*D./sqrt(x_num_spikes + y_num_spikes); % always included in [0,1]
+Dn=sqrt(2).*D./sqrt(x_num_spikes + y_num_spikes); % equals 1 for spike trains whose spikes are all separated by >>tc; can exceed 1 for trains with many spikes within tc of each other (e.g. bursts)
