@@ -1,6 +1,7 @@
 function [LZdist]=LZ_distance(spiketimes,sim_time,inct)
 % returns LZ distance
 % Christen, Markus, Adam Kohn, Thomas Ott, and Ruedi Stoop. 2006. “Measuring Spike Pattern Reliability with the Lempel–Ziv-Distance.” Journal of Neuroscience Methods 156 (1): 342–50. https://doi.org/10.1016/j.jneumeth.2006.02.023.
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time and the bin width inct in ms
 codeBook = cellstr(['0';'1']);
 
 t_vect=0:inct:sim_time;
@@ -62,5 +63,5 @@ for i_neu=1:n_neu
     end
 end
 
-LZdist=nanmean(nanmean(LZcondc));
+LZdist=mean(LZcondc(:),'omitnan');
 

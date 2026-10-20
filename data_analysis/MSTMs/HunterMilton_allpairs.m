@@ -1,5 +1,6 @@
 function [HM]=HunterMilton_allpairs(spiketimes,n_exc,tau)
 % function [HM,HME,HMI,hm_mat]=HunterMilton_allpairs(spiketimes,n_exc,tau)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; tau in ms
 
 n_neu=length(spiketimes);
 
@@ -19,6 +20,6 @@ for i=1:n_neu
     end
 end
 
-HM=nanmean(nanmean(hm_mat));
+HM=mean(hm_mat(:),'omitnan');
 % HME=nanmean(nanmean(hm_mat(1:n_exc,1:n_exc)));
 % HMI=nanmean(nanmean(hm_mat(n_exc+1:end,n_exc+1:end)));

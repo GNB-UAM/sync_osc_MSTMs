@@ -1,5 +1,6 @@
 function [QQ,qq]=QuianQuiroga_allpairs(spiketimes,n_exc,tau)
 % function [QQ,QQE,QQI,QQ_mat]=QuianQuiroga_allpairs(spiketimes,n_exc,tau)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; tau in ms
 
 n_neu=length(spiketimes);
 
@@ -14,7 +15,7 @@ for i=1:n_neu
     end
 end
 
-QQ=nanmean(nanmean(QQ_mat));
-qq=nanmean(nanmean(abs(qq_mat))); % we take the abs here, otherwise it is zero (qq is antisymmetric)
+QQ=mean(QQ_mat(:),'omitnan');
+qq=mean(abs(qq_mat(:)),'omitnan'); % we take the abs here, otherwise it is zero (qq is antisymmetric)
 % QQE=nanmean(nanmean(QQ_mat(1:n_exc,1:n_exc)));
 % QQI=nanmean(nanmean(QQ_mat(n_exc+1:end,n_exc+1:end)));

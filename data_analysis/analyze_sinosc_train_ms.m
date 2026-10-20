@@ -60,7 +60,7 @@ network_spikes=network_spiketimes(spiketimes,Rp_dt,sim_time);
 f_rate=1000.*mean(nspikes)./sim_time;
 
 % ISI CV
-cv_ISI=std_ISI./mean_ISI;
+[cv_ISI_vect,cv_ISI]=spiketimes_stat_cv(spiketimes); % mean of per-neuron CVs
 
 % ISI CV2
 [cv2_ISI_vect cv2_ISI]=spiketimes_stat_cv2(spiketimes);

@@ -1,5 +1,6 @@
 function sttc = spike_time_tiling_coefficient_wrapper(spiketimes,sim_time,inct)
 % returns Cutts 14's spike time tiling coefficient measure of synchrony
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time and the synchrony window inct in ms
 
 t_vect=0:inct:sim_time;
 n_neu=length(spiketimes);
@@ -18,7 +19,7 @@ for i_neu=1:n_neu
     end
 end
 
-sttc=nanmean(nanmean(sttc_mat));
+sttc=mean(sttc_mat(:),'omitnan');
 
 % mean_spikeks=mean(spikeks); % mean over neurons
 %

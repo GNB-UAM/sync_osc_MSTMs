@@ -1,6 +1,7 @@
 function Sc = SpikeContrastWrapper(spiketimes,sim_time)
 % returns the SpikeContrast measure of synchrony
 % Ciba, Manuel, Takuya Isomura, Yasuhiko Jimbo, Andreas Bahmer, and Christiane Thielemann. 2018. “Spike-Contrast: A Novel Time Scale Independent and Multivariate Measure of Spike Train Synchrony.” Journal of Neuroscience Methods 293 (January): 136–43. https://doi.org/10.1016/j.jneumeth.2017.09.008.
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; sim_time in ms (converted to s for SpikeContrast)
 
 n_neu=length(spiketimes);
 length_this=zeros(1,n_neu);

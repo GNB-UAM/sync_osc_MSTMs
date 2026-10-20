@@ -1,5 +1,6 @@
 function [vR,vRn]=vanRossumv_allpairs(spiketimes,n_exc,vR_tau)
 % function [vR,vRE,vRI,vR_mat]=vanRossumv_allpairs(spiketimes,n_exc,vR_tau)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; vR_tau in ms
 
 n_neu=length(spiketimes);
 
@@ -15,8 +16,8 @@ for i=1:n_neu
     end
 end
 
-vR=nanmean(nanmean(vR_mat));
+vR=mean(vR_mat(:),'omitnan');
 % vRE=nanmean(nanmean(vR_mat(1:n_exc,1:n_exc)));
 % vRI=nanmean(nanmean(vR_mat(n_exc+1:end,n_exc+1:end)));
 
-vRn=nanmean(nanmean(vRn_mat));
+vRn=mean(vRn_mat(:),'omitnan');

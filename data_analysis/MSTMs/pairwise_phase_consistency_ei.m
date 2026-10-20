@@ -1,4 +1,5 @@
 function [MPC,MPCE,MPCI,phase_coherence_mat]=pairwise_phase_consistency_ei(spiketimes,n_exc)
+% spiketimes(k).t: column vector of spike times of neuron k (in ms, as elsewhere in this package; this measure does not depend on the time unit)
 
 n_neu=length(spiketimes);
 
@@ -12,6 +13,6 @@ for i=1:n_neu
     end
 end
 
-MPC=nanmean(nanmean(phase_coherence_mat));
-MPCE=nanmean(nanmean(phase_coherence_mat(1:n_exc,1:n_exc)));
-MPCI=nanmean(nanmean(phase_coherence_mat(n_exc+1:end,n_exc+1:end)));
+MPC=mean(phase_coherence_mat(:),'omitnan');
+MPCE=mean(reshape(phase_coherence_mat(1:n_exc,1:n_exc),[],1),'omitnan');
+MPCI=mean(reshape(phase_coherence_mat(n_exc+1:end,n_exc+1:end),[],1),'omitnan');

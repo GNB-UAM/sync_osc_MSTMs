@@ -1,5 +1,6 @@
 function [VP,VPN]=VictorPurpuramex_allpairs(spiketimes,n_exc,VPq)
 % function [MPC,MPCE,MPCI,phase_coherence_mat]=VictorPurpuramex_allpairs(spiketimes,n_exc,VPq)
+% spiketimes(k).t: column vector of spike times of neuron k, in ms; VPq is the cost per ms of shifting a spike (1/tau, with tau in ms)
 
 n_neu=length(spiketimes);
 
@@ -33,8 +34,8 @@ for i=1:n_neu
     end
 end
 
-VP=nanmean(nanmean(abs(VP_mat)));
+VP=mean(abs(VP_mat(:)),'omitnan');
 % VPE=nanmean(nanmean(abs(VP_mat(1:n_exc,1:n_exc))));
 % VPI=nanmean(nanmean(abs(VP_mat(n_exc+1:end,n_exc+1:end))));
 
-VPN=nanmean(nanmean(abs(VPN_mat)));
+VPN=mean(abs(VPN_mat(:)),'omitnan');

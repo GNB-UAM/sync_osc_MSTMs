@@ -40,6 +40,10 @@ i=sqrt(-1);
 if length(phases)<n_lim
     ppc=NaN;
 else
-    ppc=sum(cos(2*pi*phases))/length(phases);
+    % Vinck et al. 2010 Eq. 14: average of cos(theta_j-theta_k) over all pairs of phases j<k,
+    % computed as (|sum_j exp(i*theta_j)|^2-N)/(N*(N-1)). This does not depend on the mean phase
+    z=exp(i*2*pi*phases);
+    n_ph=length(phases);
+    ppc=(abs(sum(z))^2-n_ph)/(n_ph*(n_ph-1));
     %keyboard;
 end
