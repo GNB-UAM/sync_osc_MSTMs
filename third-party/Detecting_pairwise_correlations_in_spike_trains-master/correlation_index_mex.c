@@ -36,7 +36,7 @@ void run_ci(int *N1v,int *N2v,double *dtv,double *Time,double *index,double *spi
 			else if(fabs(spike_times_1[i]-spike_times_2[j])<=dt){
 				Nab=Nab+1;
 				u=j+1;
-				while(fabs(spike_times_1[i]-spike_times_2[u])<=dt){
+				while(u<N2 && fabs(spike_times_1[i]-spike_times_2[u])<=dt){ // u<N2: do not read past the end of spike_times_2
 				
 					Nab=Nab+1;
 					u=u+1;
