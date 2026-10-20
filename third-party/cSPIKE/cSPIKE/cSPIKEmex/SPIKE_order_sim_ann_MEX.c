@@ -35,6 +35,7 @@ int nrhs, const mxArray *prhs[])
     int M, N, pc, rc, cc, iterations, succ_iter, indy, dummy;
     double T, T_end, alpha;
     double *D, *p, *A, *total_iter, delta_A;
+    mxArray *seed_out[1];
     
     D = (double *)mxGetPr(D_in);
     M = mxGetM(D_in);
@@ -52,7 +53,11 @@ int nrhs, const mxArray *prhs[])
     total_iter_out = mxCreateDoubleScalar(0);
     total_iter = (double *)mxGetPr(total_iter_out);
     
-    srand((unsigned)time(NULL));
+    // Seed the C generator from MATLAB's random number generator (instead of the clock),
+    // so that rng(seed) in MATLAB makes the simulated annealing result reproducible
+    mexCallMATLAB(1, seed_out, 0, NULL, "rand");
+    srand((unsigned)(mxGetScalar(seed_out[0])*4294967295.0));
+    mxDestroyArray(seed_out[0]);
 
     T=0;
     for (rc=0; rc<N; rc++) {
